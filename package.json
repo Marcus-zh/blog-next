@@ -9,13 +9,20 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-email/components": "^0.0.21",
+    "@vercel/postgres": "^0.9.0",
+    "@vercel/postgres-kysely": "^0.9.0",
     "gray-matter": "^4.0.3",
+    "kysely": "^0.27.4",
     "next": "14.2.4",
+    "nodemailer": "^6.9.14",
     "react": "^18",
     "react-dom": "^18"
   },
   "devDependencies": {
+    "@iconify/react": "^5.0.1",
     "@types/node": "^20",
+    "@types/nodemailer": "^6.4.15",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "typescript": "^5"
