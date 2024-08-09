@@ -4,12 +4,14 @@ import { cache } from "react";
 import matter from "gray-matter";
 
 import Post from "@/interface/post";
+import moment from "moment";
+import { formatDate } from "@/utils/format";
 
 interface Item {
   [key: string]: string[];
 }
 
-const postsDirectory = join(process.cwd(), "article", "posts");
+export const postsDirectory = join(process.cwd(), "article", "posts");
 
 export const getPostSlugs = cache(() => {
   return fs.readdirSync(postsDirectory);
@@ -20,8 +22,8 @@ export const getPostBySlug = cache((slug: string, fields: string[] = []) => {
     title: "",
     slug: "",
     content: "",
-    date: new Date(),
-    updated: new Date(),
+    date: "",
+    updated: "",
     tags: [],
     categories: [],
     cover: "",
@@ -31,26 +33,29 @@ export const getPostBySlug = cache((slug: string, fields: string[] = []) => {
     throw new Error("slug is required");
   }
 
-  const realSlug = slug.replace(/\.mdx?$/, "");
-  const fullPath = join(postsDirectory, `${realSlug}.md`);
+  const realSlug = slug.endsWith("md")? slug : slug+".md";
+  const fullPath = join(postsDirectory, realSlug);
+
   if (!fs.existsSync(fullPath)) {
+    console.log(fullPath);
     throw new Error("No such file");
   }
 
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
 
-  if (!data.description) {
-    data.description =
-      content.split(/<!--.*?more.*?-->/)[0] || content.slice(0, 200);
-  }
+  // format
+  data.description = data.description || content.split(/<!--.*?more.*?-->/)[0] || content.slice(0, 200);
+  data.date = formatDate(data.date);
+  data.updated = formatDate(data.updated);
+
 
   fields.forEach((field) => {
     if (field === "slug") {
-      postData[field] = realSlug;
+      postData[field] = slug;
     }
     if (field === "content") {
-      postData[field] = content;
+      postData[field] = content.replace(/<!--.*?more.*?-->/,"");
     }
     if (typeof data[field] !== "undefined") {
       postData[field] = data[field];
@@ -117,3 +122,4 @@ export const getPostByField = cache((field: string, searchValue: string) => {
 
   return post ? post[1] : undefined;
 });
+

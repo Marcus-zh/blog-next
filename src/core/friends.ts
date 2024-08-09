@@ -1,5 +1,6 @@
 import { Friend } from '@/interface/friends';
 import { db } from './db';
+import fs from 'fs';
 
 export async function createFriendsTable() {
   await db.schema
