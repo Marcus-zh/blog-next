@@ -4,10 +4,10 @@ export default interface Post {
   content: string;
   description?: string;
   keywords?: string;
-  date: Date;
-  updated: Date;
+  date: string;
+  updated: string;
   tags: string[];
   categories: string[];
   cover: string;
-  [prop: string]: string | string[]  | Date | number | boolean | undefined;
+  [prop: string]: string | string[] | number | boolean | undefined;
 }
