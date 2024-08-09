@@ -1,6 +1,7 @@
+import Navbar from "@/components/Navbar";
 import type { Metadata } from "next";
-
-
+import "@/styles/globals.css";
+import { AsideLeft, AsideRight } from "@/components/Aside";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,7 +15,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Navbar />
+        <main className="flex justify-center items-start w-[100%] mt-20 gap-4">
+          <AsideLeft />
+          {children}
+          <AsideRight />
+        </main>
+      </body>
     </html>
   );
 }
