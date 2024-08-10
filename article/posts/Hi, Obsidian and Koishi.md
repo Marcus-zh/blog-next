@@ -45,7 +45,6 @@ tcolor: CD3CDA
 
 分享下我的插件
 
-![[Pasted image 20240504122849.png]]
 
 ## 下载&配置koishi
 

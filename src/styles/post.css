@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+p > code:not([class]),
+li > code:not([class]) {
+  font-size: 85%;
+  @apply bg-indigo-800;
+  @apply font-semibold;
+  padding: 0.2em;
+  border-radius: 4px;
+  color: var(--text-code);
+}
+
+article{
+  line-height: 2;
+  word-break: break-word;
+}
+
+blockquote {
+  padding: 1rem;
+  @apply bg-zinc-600;
+  @apply rounded-2xl
+}
+ul{
+  list-style: none;
+}
+li {
+  margin-left: 1rem;
+}
+
+article > h2{
+  @apply text-3xl;
+  @apply font-bold;
+}
+
+article > h3{
+  @apply text-2xl;
+  @apply font-semibold;
+}
+
+article > h4{
+  @apply text-xl;
+  @apply font-medium;
+}
+
+article > h5{
+  @apply text-lg;
+  @apply font-normal;
+}

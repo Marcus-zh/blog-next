@@ -38,20 +38,25 @@ html {
   font-family: 'MiSans VF';
 }
 
+code{
+  font-family: 'MiSans VF';
+}
+
 a{
   text-decoration: none !important;
 }
 
 a.link{
   background: linear-gradient(rgba(68,153,238,0.4),rgba(68,153,238,0.4)) no-repeat center bottom / 100% 2px;
-  font-weight:bolder;
   transition: all 0.2s ease-out;
   -moz-transition: all 0.2s ease-out;
   -webkit-transition: all 0.2s ease-out;
   -o-transition: all 0.2s ease-out;
-  padding: 0 2px;
+  @apply font-semibold;
+  @apply p-1;
 }
 
 a.link:hover{
+  @apply rounded-lg;
   background: linear-gradient(0deg, rgba(68,153,238,0.4), rgba(68,153,238,0.4)) no-repeat left 100%/100% 100%
 }
