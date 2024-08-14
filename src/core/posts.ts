@@ -27,6 +27,7 @@ export const getPostBySlug = cache((slug: string, fields: string[] = []) => {
     tags: [],
     categories: [],
     cover: "",
+    toc: [],
   };
 
   if (!slug) {
@@ -42,12 +43,13 @@ export const getPostBySlug = cache((slug: string, fields: string[] = []) => {
   }
 
   const fileContents = fs.readFileSync(fullPath, "utf8");
+  const fileStats = fs.statSync(fullPath);
   const { data, content } = matter(fileContents);
 
   // format
   data.description = data.description || content.split(/<!--.*?more.*?-->/)[0] || content.slice(0, 200);
-  data.date = formatDate(data.date);
-  data.updated = formatDate(data.updated);
+  data.date = formatDate(data.date||fileStats.birthtime.toISOString());
+  data.updated = formatDate(data.updated||fileStats.mtime.toISOString());
 
 
   fields.forEach((field) => {
@@ -68,7 +70,7 @@ export const getPostBySlug = cache((slug: string, fields: string[] = []) => {
 // 获取所有文章的内容
 export const getAllPosts = cache((fields: string[] = []) => {
   const slugs = getPostSlugs();
-  const posts: Post[] = slugs.map((slug) => getPostBySlug(slug, fields));
+  const posts: Post[] = slugs.map((slug) => getPostBySlug(slug.replace(".md",""), fields));
   return posts.sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
 });
 

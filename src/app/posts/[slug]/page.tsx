@@ -1,39 +1,17 @@
-import { getPostBySlug } from "@/core/posts";
-import { MDXRemote } from "next-mdx-remote/rsc";
-import * as Components from "@/components/Posts/Tags";
-import Card from "@/components/Card";
-import "@/styles/post.css"
+import { Suspense } from "react";
+import { evaluate, type EvaluateOptions } from "next-mdx-remote-client/rsc";
+import remarkFlexibleToc, { type TocItem } from "remark-flexible-toc";
+import { remarkMdxToc, type TocEntry } from "remark-mdx-toc";
+import { unified } from "unified";
 
-const components = {
-  h2: (props: any) => (
-    <h2
-      {...props}
-      id={props.children.replace(/ /g, "-").toLowerCase()}
-    >
-      {props.children}
-      <a
-        href={`#${props.children.replace(/ /g, "-").toLowerCase()}`}
-      >
-        #
-      </a>
-    </h2>
-  ),
-  p: (props: any) => (
-    <p {...props}>
-      {props.children}
-    </p>
-  ),
-  a: (props: any) => (
-    <a {...props} className="link" />
-  ),
-  code: (props: any) => (
-    <code {...props} />
-  ),
-  pre: (props: any) => (
-    <pre {...props} />
-  ),
-  ...Components,
-};
+import { useMDXComponents as Components } from "@/../mdx-components";
+import { getPostBySlug } from "@/core/posts";
+import Card from "@/components/Card";
+import { AsideLeft, AsideRight } from "@/components/Aside";
+import "@/styles/post.css";
+import { Config } from "@/Config";
+import Waline from "@/components/Posts/Comments";
+
 export function generateMetadata({ params }: { params: { slug: string } }) {
   const { slug } = params;
   const { title, description } = getPostBySlug(decodeURIComponent(slug), [
@@ -41,26 +19,43 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
     "description",
   ]);
   return {
-    title: `${title} - Marcus`,
+    title: `${title} - ${Config.info.siteName}`,
     description: description,
   };
 }
 
-export default function Post({ params }: { params: { slug: string } }) {
+export default async function Post({ params }: { params: { slug: string } }) {
   const { slug } = params;
-  const { content, cover } = getPostBySlug(decodeURIComponent(slug), [
-    "content",
-    "cover",
-  ]);
-
+  let post = getPostBySlug(decodeURIComponent(slug), ["content", "cover"]);
+  const source = post.content;
+  type Scope = {
+    // toc: TocEntry[];
+  };
+  const options: EvaluateOptions<Scope> = {
+    mdxOptions: {
+      remarkPlugins: [],
+    },
+    vfileDataIntoScope: "toc",
+  };
+  const { content, scope, error } = await evaluate<Scope>({
+    source,
+    options,
+  });
   return (
-    <Card className="flex-wrap w-[40%]">
-      <div className="cover w-full ">
-        <img src={cover} className="rounded-t-2xl" />
+    <>
+      <AsideLeft types={Config.aside.posts.left} />
+      <div className="post flex flex-col gap-4 w-[40%] max-md:w-[90%]">
+        <Card className="flex-wrap w-full">
+          <div className="cover w-full ">
+            <img src={post.cover} className="rounded-t-2xl" />
+          </div>
+          <article className="p-5 flex flex-col gap-4 max-w-full">
+            <Suspense>{content}</Suspense>
+          </article>
+        </Card>
+        {Config.waline && <Waline {...Config.waline} path={"/posts/" + slug}/>}
       </div>
-      <article className="p-5 flex flex-col gap-4">
-        <MDXRemote source={content} components={components} />
-      </article>
-    </Card>
+      <AsideRight types={Config.aside.posts.right} post={post} />
+    </>
   );
 }

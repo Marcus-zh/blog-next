@@ -16,7 +16,7 @@ export default function PostCard({
   return (
     <Card className="w-[100%] h-40">
       <article className="flex flex-row justify-center items-center">
-        <div className="info w-[60%] h-[100%] flex flex-col justify-between p-4">
+        <div className={`info ${cover?'w-[60%]':'w-full'} h-[100%] flex flex-col justify-between p-4`}>
           <div className="info-top flex flex-col gap-1 justify-start">
             <div className="categories flex flex-row p-0 gap-1">
               {categories.map((category) => (
@@ -44,15 +44,16 @@ export default function PostCard({
             </span>
           </div>
         </div>
-        <div className="cover w-[40%] h-[100%] relative top-0 right-0 ">
+        {cover && <div className="cover w-[40%] h-[100%] relative top-0 right-0 ">
           <Link href={`/posts/${slug}`}>
-          <img
-            className="cover-img w-[100%] h-[100%] object-cover rounded-tr-2xl rounded-br-2xl"
-            src={cover}
-            alt={title}
-            title={description}
-          ></img></Link>
-        </div>
+            <img
+              className="cover-img w-[100%] h-[100%] object-cover rounded-tr-2xl rounded-br-2xl"
+              src={cover}
+              alt={title}
+              title={description}
+            ></img>
+          </Link>
+        </div>}
         {/* <div className="tags absolute top-4 left-4 flex flex-row gap-4" style={{display: "none"}}>
         {tags.map((tag) => (
           <Link
