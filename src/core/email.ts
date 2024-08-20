@@ -1,6 +1,6 @@
 import { render } from '@react-email/components';
 import nodemailer from 'nodemailer';
-import { getAllFriends } from './friends';
+// import { getAllFriends } from './friends';
 import { Friend } from '@/interface/friends';
 
 export const sender = nodemailer.createTransport({
@@ -22,8 +22,8 @@ export function getMailOpinion(to: string, subject: string,emailHtml: string) {
   };
 }
 
-export async function getAllEmail(){
-  const allFriends = await getAllFriends()
-  const emailList = allFriends.map((friend: Friend) => friend.acceptPush && friend.email)
-  return emailList
-}
+// export async function getAllEmail(){
+//   const allFriends = await getAllFriends()
+//   const emailList = allFriends.map((friend: Friend) => friend.acceptPush && friend.email)
+//   return emailList
+// }

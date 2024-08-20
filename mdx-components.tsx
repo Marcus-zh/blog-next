@@ -1,5 +1,5 @@
 import type { MDXComponents } from 'mdx/types'
-import SyntaxHighlighter from 'react-syntax-highlighter'
+// import SyntaxHighlighter from 'react-syntax-highlighter'
 import Image, { ImageProps } from 'next/image'
 
 import * as Components from "@/components/Posts/Tags";
@@ -27,12 +27,12 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     a: (props: any) => (
       <a {...props} className="link" />
     ),
-    code: ({className, ...properties}: {className: string})=> {
-      const match = /language-(\w+)/.exec(className || '')
-      return match
-        ? <SyntaxHighlighter language={match[1]} PreTag="div" className="overflow-x-scroll" {...properties} />
-        : <code className={className} {...properties} />
-    },
+    // code: ({className, ...properties}: {className: string})=> {
+    //   const match = /language-(\w+)/.exec(className || '')
+    //   return match
+    //     ? <SyntaxHighlighter language={match[1]} PreTag="div" className="overflow-x-scroll" {...properties} />
+    //     : <code className={className} {...properties} />
+    // },
     ...Components,
   }
 }

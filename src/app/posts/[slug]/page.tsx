@@ -1,8 +1,6 @@
 import { Suspense } from "react";
 import { evaluate, type EvaluateOptions } from "next-mdx-remote-client/rsc";
-import remarkFlexibleToc, { type TocItem } from "remark-flexible-toc";
-import { remarkMdxToc, type TocEntry } from "remark-mdx-toc";
-import { unified } from "unified";
+// import { remarkToc, type TocEntry } from "remark-better-toc/dist/esm";
 
 import { useMDXComponents as Components } from "@/../mdx-components";
 import { getPostBySlug } from "@/core/posts";
@@ -26,14 +24,18 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
 
 export default async function Post({ params }: { params: { slug: string } }) {
   const { slug } = params;
-  let post = getPostBySlug(decodeURIComponent(slug), ["content", "cover"]);
+  let post = getPostBySlug(decodeURIComponent(slug), [
+    "content",
+    "cover",
+    "toc",
+  ]);
   const source = post.content;
   type Scope = {
-    // toc: TocEntry[];
+    // toc: TocEntry;
   };
   const options: EvaluateOptions<Scope> = {
     mdxOptions: {
-      remarkPlugins: [],
+      // remarkPlugins: [remarkToc],
     },
     vfileDataIntoScope: "toc",
   };
@@ -41,6 +43,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
     source,
     options,
   });
+  console.log(scope);
   return (
     <>
       <AsideLeft types={Config.aside.posts.left} />
@@ -53,7 +56,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
             <Suspense>{content}</Suspense>
           </article>
         </Card>
-        {Config.waline && <Waline {...Config.waline} path={"/posts/" + slug}/>}
+        {Config.waline && <Waline {...Config.waline} path={"/posts/" + slug} />}
       </div>
       <AsideRight types={Config.aside.posts.right} post={post} />
     </>

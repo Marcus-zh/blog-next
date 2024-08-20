@@ -3,8 +3,7 @@ import fs from "fs";
 import { cache } from "react";
 import matter from "gray-matter";
 
-import Post from "@/interface/post";
-import moment from "moment";
+import Post, { Toc } from "@/interface/post";
 import { formatDate } from "@/utils/format";
 
 interface Item {

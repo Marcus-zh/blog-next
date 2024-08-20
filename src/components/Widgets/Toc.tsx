@@ -1,6 +1,5 @@
-import { TocItem } from "remark-flexible-toc";
-
-export default function Toc({ toc }: { toc: TocItem[] | undefined }) {
+import { type Toc } from "@/interface/post"
+export default function Toc({ toc }: { toc: Toc[] | undefined }) {
   if (!toc) return null;
   toc.forEach((item) => {
     item

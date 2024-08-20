@@ -41,25 +41,19 @@ export function AsideRight({ types, post }: AsideProps) {
   );
 }
 
-function AsideWidgets({
-  key,
-  item,
-  post,
-}: {
-  key: string;
-  item: string;
-  post?: Post;
-}) {
+function AsideWidgets({ item, post }: { item: string; post?: Post }) {
   switch (item) {
     case "Logo":
-      return <Logo key={key} />;
+      return <Logo />;
     case "Search":
-      return <Search key={key} />;
+      return <Search />;
     case "Tags":
-      return <Tags key={key} />;
+      return <Tags />;
+    case "Info":
+      return <Info />;
     case "Toc":
-      if (post){
-        return <Toc key={key} toc={post.toc} />;
+      if (post) {
+        return <Toc toc={post.toc} />;
       }
   }
 }

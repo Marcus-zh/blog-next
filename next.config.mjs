@@ -1,5 +1,4 @@
 import createMDX from '@next/mdx'
-import { remarkMdxToc } from "remark-mdx-toc";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -9,7 +8,7 @@ const nextConfig = {
 
 const withMDX = createMDX({
   options: {
-    remarkPlugins :[remarkMdxToc,{name: "toc"}],
+    remarkPlugins :[],
     rehypePlugins :[],
   }
 })
