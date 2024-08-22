@@ -1,0 +1,91 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("POSTGRES_URL")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model wl_comment {
+  id         Int       @id @default(autoincrement())
+  user_id    Int?
+  comment    String?
+  insertedat DateTime  @default(now()) @db.Timestamp(0)
+  ip         String?   @default("") @db.VarChar(100)
+  link       String?   @db.VarChar(255)
+  mail       String?   @db.VarChar(255)
+  nick       String?   @db.VarChar(255)
+  pid        Int?
+  rid        Int?
+  sticky     Decimal?  @db.Decimal
+  status     String    @default("") @db.VarChar(50)
+  like       Int?
+  ua         String?
+  url        String?   @db.VarChar(255)
+  createdat  DateTime? @default(now()) @db.Timestamp(0)
+  updatedat  DateTime? @default(now()) @db.Timestamp(0)
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model wl_counter {
+  id        Int       @id @default(autoincrement())
+  time      Int?
+  reaction0 Int?
+  reaction1 Int?
+  reaction2 Int?
+  reaction3 Int?
+  reaction4 Int?
+  reaction5 Int?
+  reaction6 Int?
+  reaction7 Int?
+  reaction8 Int?
+  url       String    @default("") @db.VarChar(255)
+  createdat DateTime? @default(now()) @db.Timestamp(0)
+  updatedat DateTime? @default(now()) @db.Timestamp(0)
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model wl_users {
+  id           Int       @id @default(autoincrement())
+  display_name String    @default("") @db.VarChar(255)
+  email        String    @default("") @db.VarChar(255)
+  password     String    @default("") @db.VarChar(255)
+  type         String    @default("") @db.VarChar(50)
+  label        String?   @db.VarChar(255)
+  url          String?   @db.VarChar(255)
+  avatar       String?   @db.VarChar(255)
+  github       String?   @db.VarChar(255)
+  twitter      String?   @db.VarChar(255)
+  facebook     String?   @db.VarChar(255)
+  google       String?   @db.VarChar(255)
+  weibo        String?   @db.VarChar(255)
+  qq           String?   @db.VarChar(255)
+  fa           String?   @map("2fa") @db.VarChar(32)
+  createdat    DateTime? @default(now()) @db.Timestamp(0)
+  updatedat    DateTime? @default(now()) @db.Timestamp(0)
+  friends      friends?
+}
+
+model friends {
+  id         Int       @id @default(autoincrement())
+  siteName   String    @default("") @db.VarChar(255)
+  siteImg    String    @db.VarChar(255)
+  bio        String    @db.VarChar(255)
+  acceptPush Boolean?  @default(false)
+  rss        String?   @db.VarChar(255)
+  siteLink   String    @db.VarChar(255)
+  siteBanner String?   @db.VarChar(255)
+  categoryId Int       @default(1)
+  category   friends_category @relation(fields: [categoryId], references: [id])
+  wlUserID   Int?      @unique
+  wl_users   wl_users? @relation(fields: [wlUserID], references: [id])
+}
+
+model friends_category {
+  id      Int       @id @default(autoincrement())
+  name    String    @default("") @db.VarChar(255)
+  desc    String?   @db.VarChar(255)
+  friends friends[]
+}

@@ -24,8 +24,7 @@ interface Social {
 }
 
 interface Aside {
-  home: AsideWidgets;
-  posts: AsideWidgets;
+  [key: string]: AsideWidgets;
 }
 
 interface AsideWidgets {

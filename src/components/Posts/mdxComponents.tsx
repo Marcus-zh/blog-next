@@ -1,11 +1,6 @@
-import type { MDXComponents } from 'mdx/types'
-// import SyntaxHighlighter from 'react-syntax-highlighter'
-import Image, { ImageProps } from 'next/image'
-
-import * as Components from "@/components/Posts/Tags";
-
-export function useMDXComponents(components: MDXComponents): MDXComponents {
-  return {
+import { MDXComponents } from "next-mdx-remote-client/rsc";
+import * as Components from "./Components";
+export const components: MDXComponents= {
     h2: (props: any) => (
       <h2
         {...props}
@@ -34,5 +29,4 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     //     : <code className={className} {...properties} />
     // },
     ...Components,
-  }
-}
+  };

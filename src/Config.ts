@@ -23,6 +23,10 @@ export const Config: Config = {
       left: ["Logo", "Search", "Tags"],
       right: ["Info"],
     },
+    friends: {
+      left: ["Logo", "Search", "Tags"],
+      right: ["Info"],
+    },
   },
   waline: {
     serverURL: "https://waline.marcus233.top",

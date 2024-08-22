@@ -1,8 +1,8 @@
 import { Suspense } from "react";
 import { evaluate, type EvaluateOptions } from "next-mdx-remote-client/rsc";
 // import { remarkToc, type TocEntry } from "remark-better-toc/dist/esm";
-
-import { useMDXComponents as Components } from "@/../mdx-components";
+import { components } from "@/components/Posts/mdxComponents";
+// import { useMDXComponents as components } from "@/../mdx-components";
 import { getPostBySlug } from "@/core/posts";
 import Card from "@/components/Card";
 import { AsideLeft, AsideRight } from "@/components/Aside";
@@ -42,6 +42,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
   const { content, scope, error } = await evaluate<Scope>({
     source,
     options,
+    components,
   });
   console.log(scope);
   return (

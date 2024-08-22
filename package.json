@@ -6,7 +6,8 @@
     "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prisma": "prisma db pull&&prisma generate&&prisma studio"
   },
   "dependencies": {
     "@mdx-js/mdx": "^3.0.1",
