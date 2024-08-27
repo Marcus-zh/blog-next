@@ -60,3 +60,14 @@ a.link:hover{
   @apply rounded-lg;
   background: linear-gradient(0deg, rgba(68,153,238,0.4), rgba(68,153,238,0.4)) no-repeat left 100%/100% 100%
 }
+
+/* For Webkit-based browsers (Chrome, Safari and Opera) */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* For IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}

@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <>
       <AsideLeft types={Config.aside.home.left} />
-      <div className="posts flex flex-wrap w-[40%] gap-4 max-md:w-[90%]">
+      <div className="posts flex flex-wrap w-[40%] gap-5 max-md:w-[90%]">
         {getAllPosts([
           "title",
           "slug",
@@ -20,8 +20,8 @@ export default function Home() {
         ]).map((post: Post) => {
           return <PostCard {...post} key={post.slug} />;
         })}
-        <AsideRight types={Config.aside.home.right}/>
       </div>
+      <AsideRight types={Config.aside.home.right} />
     </>
   );
 }

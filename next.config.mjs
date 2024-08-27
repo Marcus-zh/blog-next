@@ -1,16 +1,27 @@
-import createMDX from '@next/mdx'
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
-  transpilePackages: ['next-mdx-remote-client'],
+  transpilePackages: ['next-mdx-remote-client','next-mdx-remote'],
+  async rewrites() {
+    return [
+      {
+        source: '/rss',
+        destination: '/atom.xml',
+      },
+      {
+        source: '/rss.xml',
+        destination: '/atom.xml',
+      },
+      {
+        source: '/feed',
+        destination: '/atom.xml',
+      },
+      {
+        source: '/feed.xml',
+        destination: '/atom.xml',
+      }
+    ]
+  },
 };
 
-const withMDX = createMDX({
-  options: {
-    remarkPlugins :[],
-    rehypePlugins :[],
-  }
-})
-
-export default withMDX(nextConfig)
+export default nextConfig

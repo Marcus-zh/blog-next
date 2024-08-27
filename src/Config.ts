@@ -6,13 +6,15 @@ export const Config: Config = {
     author: "Marcus",
     description: "人间值得,未来可期",
     siteUrl: "https://blog.marcus233.top",
-    avatar: "/avatar.jpg",
-    icon: "",
+    avatar: "/avatar.png",
+    icon: "/favicon.ico",
+    favicon: "/favicon.ico",
+    copyright: "CC BY-NC-SA 4.0",
+    generator: "Nextjs/14.2.5",
   },
   social: {
     email: "marcus-zh@qq.com",
-    github: "https://github.com/marcus-im",
-    twitter: "https://twitter.com/marcus_im",
+    github: "https://github.com/marcus-zh",
   },
   aside: {
     home: {

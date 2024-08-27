@@ -9,8 +9,16 @@ export default interface Post {
   tags: string[];
   categories: string[];
   cover: string;
+  author?: author;
+  copyright?: string;
   toc: Toc[];
-  [prop: string]: string | string[] | number | boolean | Toc[] | undefined;
+  [prop: string]: string | string[] | number | boolean | Toc[] | author | undefined;
+}
+
+export interface author {
+  name: string;
+  email: string;
+  link: string;
 }
 
 export interface Toc {

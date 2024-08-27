@@ -14,12 +14,14 @@ interface Info {
   siteUrl: string;
   avatar: string;
   icon: string;
+  favicon: string;
+  copyright: string;
+  generator: string;
 }
 
 interface Social {
   email: string;
   github: string;
-  twitter: string;
   [key: string]: string;
 }
 
