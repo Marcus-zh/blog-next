@@ -8,7 +8,6 @@ import {
   LinkCardMedium,
   LinkCardSmall,
 } from "@/components/Friends/LinkCard";
-import { getFriendsData } from "@/utils/getData";
 
 export default async function Friends() {
   try {
