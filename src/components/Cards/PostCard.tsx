@@ -2,7 +2,6 @@ import Post from "@/interface/post";
 import Card from "../Card";
 import { formatTime } from "@/utils/format";
 import Link from "next/link";
-import styles from "@/styles/Cards/PostCard.module.css";
 
 export default function PostCard({
   title,
@@ -38,7 +37,7 @@ export default function PostCard({
               </h2>
             </Link>
           </div>
-          <div className="flex flex-row ">
+          <div className="flex flex-row">
             <span className="text-sm" title={`创建于 ${date}`}>
               {formatTime(date)}
             </span>
@@ -47,7 +46,7 @@ export default function PostCard({
         {cover && <div className="cover w-[40%] h-[100%] relative top-0 right-0 ">
           <Link href={`/posts/${slug}`}>
             <img
-              className="cover-img w-[100%] h-[100%] object-cover rounded-tr-2xl rounded-br-2xl"
+              className="cover-img w-[100%] h-[100%] object-cover rounded-r-2xl"
               src={cover}
               alt={title}
               title={description}

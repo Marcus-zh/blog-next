@@ -2,6 +2,7 @@
 title: "Nextjs App router 博客试错记"
 ---
 ## 1.MDX文件渲染
+### 8.12
 首先在vercel官网看到了[Markdown and MDX](https://nextjs.org/docs/app/building-your-application/configuring/mdx)
 就先试了试[@next/mdx](https://www.npmjs.com/package/@next/mdx)
 然后发现不支持动态导入
@@ -79,3 +80,9 @@ export default async function Post({ params }: { params: { slug: string } }) {
 }
 ```
 嗯,这下可以了
+### 8.26
+嗯嗯嗯...
+这玩意好像不支持rehype插件😓
+一装上就渲染不出来
+好嘛,想用[mdx-bundler](https://www.npmjs.com/package/mdx-bundler),却懒得改`async`了
+又用回了`next-mdx-remote`
