@@ -1,7 +1,7 @@
 import { render } from '@react-email/components';
 import nodemailer from 'nodemailer';
 // import { getAllFriends } from './friends';
-import { Friend } from '@/interface/friends';
+// import { Friend } from '@/interface/friends';
 
 export const sender = nodemailer.createTransport({
   host: process.env.EMAIL_HOST,

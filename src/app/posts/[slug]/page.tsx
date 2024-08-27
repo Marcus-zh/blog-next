@@ -63,9 +63,6 @@ export default async function Post({ params }: { params: { slug: string } }) {
                 dark: "one-dark-pro",
               },
               addLanguageClass: true,
-              meta: {
-                __raw: attrs,
-              },
             },
           ],
         ],
