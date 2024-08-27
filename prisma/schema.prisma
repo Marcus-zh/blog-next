@@ -79,6 +79,7 @@ model friends {
   siteLink         String           @db.VarChar(255)
   siteBanner       String?          @db.VarChar(255)
   categoryId       Int              @default(1)
+  label            String?          @db.VarChar(255)
   friends_category friends_category @relation(fields: [categoryId], references: [id])
   wl_users         wl_users?        @relation(fields: [wlUserID], references: [id])
 }
@@ -87,5 +88,6 @@ model friends_category {
   id      Int       @id @default(autoincrement())
   name    String    @default("") @db.VarChar(255)
   desc    String?   @db.VarChar(255)
+  type    String?   @default("medium") @db.VarChar
   friends friends[]
 }

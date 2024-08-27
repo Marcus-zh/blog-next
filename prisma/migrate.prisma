@@ -69,23 +69,25 @@ model wl_users {
 }
 
 model friends {
-  id         Int       @id @default(autoincrement())
-  siteName   String    @default("") @db.VarChar(255)
-  siteImg    String    @db.VarChar(255)
-  bio        String    @db.VarChar(255)
-  acceptPush Boolean?  @default(false)
-  rss        String?   @db.VarChar(255)
-  siteLink   String    @db.VarChar(255)
-  siteBanner String?   @db.VarChar(255)
-  categoryId Int       @default(1)
-  category   friends_category @relation(fields: [categoryId], references: [id])
-  wlUserID   Int?      @unique
-  wl_users   wl_users? @relation(fields: [wlUserID], references: [id])
+  id               Int              @id @default(autoincrement())
+  siteName         String           @default("") @db.VarChar(255)
+  siteImg          String           @db.VarChar(255)
+  bio              String           @db.VarChar(255)
+  acceptPush       Boolean?         @default(false)
+  wlUserID         Int?             @unique
+  rss              String?          @db.VarChar(255)
+  siteLink         String           @db.VarChar(255)
+  siteBanner       String?          @db.VarChar(255)
+  label            String?          @db.VarChar(255) // 同wl_users.label
+  categoryId       Int              @default(1)
+  friends_category friends_category @relation(fields: [categoryId], references: [id])
+  wl_users         wl_users?        @relation(fields: [wlUserID], references: [id])
 }
 
 model friends_category {
   id      Int       @id @default(autoincrement())
   name    String    @default("") @db.VarChar(255)
   desc    String?   @db.VarChar(255)
+  type    String?   @db.VarChar() @default("medium") // Large , medium , small
   friends friends[]
 }
