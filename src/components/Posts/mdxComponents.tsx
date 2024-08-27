@@ -1,8 +1,8 @@
 import { MDXComponents } from "next-mdx-remote-client/rsc";
 import * as Components from "./Components";
 import Link from "next/link";
-import { codeToHtml } from "shiki";
-import { transformerTwoslash } from "@shikijs/twoslash";
+// import { codeToHtml } from "shiki";
+// import { transformerTwoslash } from "@shikijs/twoslash";
 
 export const components: MDXComponents = {
   h2: (props) => (
