@@ -23,7 +23,7 @@ export const Config: Config = {
     },
     posts: {
       left: ["Logo", "Search", "Tags"],
-      right: ["Info"],
+      right: ["Toc", "Info"],
     },
     friends: {
       left: ["Logo", "Search", "Tags"],
@@ -39,4 +39,5 @@ export const Config: Config = {
     lang: "zh-CN",
     dark: "auto",
     reaction: [],
-  }};
+  },
+};

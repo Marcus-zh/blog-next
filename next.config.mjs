@@ -1,7 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
-  transpilePackages: ['next-mdx-remote-client','next-mdx-remote'],
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx'],
+  experimental: {
+    serverComponentsExternalPackages: ['shiki'],
+  },
   async rewrites() {
     return [
       {

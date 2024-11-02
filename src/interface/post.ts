@@ -1,3 +1,5 @@
+import { TocItem } from "remark-flexible-toc";
+
 export default interface Post {
   title: string;
   slug: string;
@@ -9,10 +11,10 @@ export default interface Post {
   tags: string[];
   categories: string[];
   cover: string;
+  toc: TocItem[];
   author?: author;
   copyright?: string;
-  toc: Toc[];
-  [prop: string]: string | string[] | number | boolean | Toc[] | author | undefined;
+  [prop: string]: string | string[] | number | boolean | TocItem[] | author | undefined;
 }
 
 export interface author {

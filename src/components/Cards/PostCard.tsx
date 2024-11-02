@@ -2,6 +2,7 @@ import Post from "@/interface/post";
 import Card from "../Card";
 import { formatTime } from "@/utils/format";
 import Link from "next/link";
+import { clsxm } from "@/utils/helper";
 
 export default function PostCard({
   title,
@@ -15,14 +16,20 @@ export default function PostCard({
   return (
     <Card className="w-[100%] h-40">
       <article className="flex flex-row justify-center items-center">
-        <div className={`info ${cover?'w-[60%]':'w-full'} h-[100%] flex flex-col justify-between p-4`}>
+        <div
+          className={clsxm(
+            "info",
+            cover ? "w-[60%]" : "w-full",
+            " h-[100%] flex flex-col justify-between p-4"
+          )}
+        >
           <div className="info-top flex flex-col gap-1 justify-start">
             <div className="categories flex flex-row p-0 gap-1">
               {categories.map((category) => (
                 <Link href={`/categories/${category}`} key={category}>
                   <span
                     key={category}
-                    className="category text-blue-300 text-base"
+                    className="category text-blue-700 dark:text-blue-300 text-base"
                     title={category}
                   >{`# ${category}`}</span>
                 </Link>
@@ -43,16 +50,18 @@ export default function PostCard({
             </span>
           </div>
         </div>
-        {cover && <div className="cover w-[40%] h-[100%] relative top-0 right-0 ">
-          <Link href={`/posts/${slug}`}>
-            <img
-              className="cover-img w-[100%] h-[100%] object-cover rounded-r-2xl"
-              src={cover}
-              alt={title}
-              title={description}
-            ></img>
-          </Link>
-        </div>}
+        {cover && (
+          <div className="cover w-[40%] h-[100%] relative top-0 right-0 ">
+            <Link href={`/posts/${slug}`}>
+              <img
+                className="cover-img w-[100%] h-[100%] object-cover rounded-r-2xl"
+                src={cover}
+                alt={title}
+                title={description}
+              ></img>
+            </Link>
+          </div>
+        )}
         {/* <div className="tags absolute top-4 left-4 flex flex-row gap-4" style={{display: "none"}}>
         {tags.map((tag) => (
           <Link
