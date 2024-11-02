@@ -4,17 +4,17 @@ import {
   transformerNotationDiff,
   transformerNotationHighlight,
   transformerNotationWordHighlight,
-} from '@shikijs/transformers'
+} from "@shikijs/transformers";
+import { ShikiWrapper } from "./ShikiWrapper";
 
 export interface Props {
   lang: string | undefined;
   content: string;
-
-  attrs?: string;
 }
 
-export default async function ShikiWrapper(props: Props) {
-  const { attrs, content, lang } = props;
+
+export default async function ShikiHighLighter(props: Props) {
+  const { content, lang } = props;
   const out = await codeToHtml(content, {
     lang: lang || "plaintext",
     theme: "one-dark-pro",
@@ -26,5 +26,5 @@ export default async function ShikiWrapper(props: Props) {
     ],
   });
 
-  return <div dangerouslySetInnerHTML={{__html: out}}/>;
+  return <ShikiWrapper {...props} renderedHTML={out} />;
 }

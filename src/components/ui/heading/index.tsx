@@ -3,6 +3,8 @@ import { createElement, useId } from 'react'
 
 import { useIsClient } from '@/utils/use-is-client'
 import { springScrollToElement } from '@/utils/scroller'
+import { Icon } from "@iconify/react/dist/iconify.js";
+
 
 interface HeadingProps {
   id: string
@@ -42,7 +44,7 @@ export const Header = (props: HeadingProps) => {
             springScrollToElement(document.getElementById(nextId)!, -100)
           }}
         >
-          <i className="icon-[mingcute--hashtag-line]" />
+          <Icon icon="tabler:hash"/>
         </span>
       )}
     </>,

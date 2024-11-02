@@ -1,34 +1,34 @@
-'use client'
+"use client";
 
-import { clsx } from 'clsx'
-import type { MarkdownToJSX } from '@innei/markdown-to-jsx'
-import { compiler, sanitizeUrl } from '@innei/markdown-to-jsx'
-import Script from 'next/script'
-import type React from 'react'
-import type { FC, PropsWithChildren } from 'react'
-import { Fragment, memo, Suspense, useMemo, useRef } from 'react'
-import { isDev } from '@/utils/env'
-import { Header } from '../heading'
-import { ShikiHighLighterWrapper } from '../shiki/ShikiWrapper'
-import { AlertsRule } from './parsers/alert'
-import CodeBlock from '../shiki'
+import { clsx } from "clsx";
+import type { MarkdownToJSX } from "@innei/markdown-to-jsx";
+import { compiler, sanitizeUrl } from "@innei/markdown-to-jsx";
+import Script from "next/script";
+import type React from "react";
+import type { FC, PropsWithChildren } from "react";
+import { Fragment, memo, Suspense, useMemo, useRef } from "react";
+import { isDev } from "@/utils/env";
+import { Header } from "../heading";
+import { AlertsRule } from "./parsers/alert";
+import CodeBlock from "../codeBlock";
+// import "./markdown.css"
 
 export interface MdProps {
-  value?: string
+  value?: string;
 
-  style?: React.CSSProperties
-  readonly renderers?: Record<string, Partial<MarkdownToJSX.Rule>>
+  style?: React.CSSProperties;
+  readonly renderers?: Record<string, Partial<MarkdownToJSX.Rule>>;
   wrapperProps?: React.DetailedHTMLProps<
     React.HTMLAttributes<HTMLDivElement>,
     HTMLDivElement
-  >
-  codeBlockFully?: boolean
-  className?: string
-  as?: React.ElementType
+  >;
+  codeBlockFully?: boolean;
+  className?: string;
+  as?: React.ElementType;
 
-  allowsScript?: boolean
+  allowsScript?: boolean;
 
-  removeWrapper?: boolean
+  removeWrapper?: boolean;
 }
 
 export const Markdown: FC<MdProps & MarkdownToJSX.Options & PropsWithChildren> =
@@ -43,23 +43,23 @@ export const Markdown: FC<MdProps & MarkdownToJSX.Options & PropsWithChildren> =
       overrides,
       extendsRules,
       additionalParserRules,
-      as: As = 'div',
+      as: As = "div",
       allowsScript = false,
       removeWrapper = false,
 
       ...rest
-    } = props
+    } = props;
 
-    const ref = useRef<HTMLDivElement>(null)
+    const ref = useRef<HTMLDivElement>(null);
 
     const node = useMemo(() => {
-      const mdContent = value || props.children
+      const mdContent = value || props.children;
 
-      if (!mdContent) return null
-      if (typeof mdContent != 'string') return null
+      if (!mdContent) return null;
+      if (typeof mdContent != "string") return null;
 
       const mdElement = compiler(mdContent, {
-        doNotProcessHtmlElements: ['tab', 'style', 'script'] as any[],
+        doNotProcessHtmlElements: ["tab", "style", "script"] as any[],
         wrapper: null,
         // @ts-ignore
         overrides: {
@@ -97,7 +97,7 @@ export const Markdown: FC<MdProps & MarkdownToJSX.Options & PropsWithChildren> =
                 <Header id={node.id} level={node.level} key={state?.key}>
                   {output(node.content, state!)}
                 </Header>
-              )
+              );
             },
           },
           gfmTask: {
@@ -110,7 +110,7 @@ export const Markdown: FC<MdProps & MarkdownToJSX.Options & PropsWithChildren> =
                   readOnly
                   className="!size-[1em]"
                 />
-              )
+              );
             },
           },
 
@@ -144,10 +144,10 @@ export const Markdown: FC<MdProps & MarkdownToJSX.Options & PropsWithChildren> =
               return {
                 content: capture[4],
                 lang: capture[2] || undefined,
-                type: 'codeBlock',
+                type: "codeBlock",
 
                 attrs: capture[3],
-              }
+              };
             },
           },
           codeBlock: {
@@ -159,7 +159,7 @@ export const Markdown: FC<MdProps & MarkdownToJSX.Options & PropsWithChildren> =
                   lang={node.lang}
                   attrs={node?.attrs}
                 />
-              )
+              );
             },
           },
           codeInline: {
@@ -171,7 +171,7 @@ export const Markdown: FC<MdProps & MarkdownToJSX.Options & PropsWithChildren> =
                 >
                   {node.content}
                 </code>
-              )
+              );
             },
           },
 
@@ -202,22 +202,22 @@ export const Markdown: FC<MdProps & MarkdownToJSX.Options & PropsWithChildren> =
           ...renderers,
         },
         additionalParserRules: {
-        //   spoilder: SpoilerRule,
-        //   mention: MentionRule,
+          //   spoilder: SpoilerRule,
+          //   mention: MentionRule,
 
-        //   mark: MarkRule,
-        //   ins: InsertRule,
-        //   kateX: KateXRule,
-        //   kateXBlock: KateXBlockRule,
-        //   container: ContainerRule,
+          //   mark: MarkRule,
+          //   ins: InsertRule,
+          //   kateX: KateXRule,
+          //   kateXBlock: KateXBlockRule,
+          //   container: ContainerRule,
           alerts: AlertsRule,
 
           ...additionalParserRules,
         },
         ...rest,
-      })
+      });
 
-      return mdElement
+      return mdElement;
     }, [
       value,
       props.children,
@@ -227,9 +227,9 @@ export const Markdown: FC<MdProps & MarkdownToJSX.Options & PropsWithChildren> =
       renderers,
       additionalParserRules,
       rest,
-    ])
+    ]);
 
-    if (removeWrapper) return <Suspense>{node}</Suspense>
+    if (removeWrapper) return <Suspense>{node}</Suspense>;
 
     return (
       <Suspense>
@@ -240,20 +240,20 @@ export const Markdown: FC<MdProps & MarkdownToJSX.Options & PropsWithChildren> =
           className={clsx(
             // styles['md'],
             // codeBlockFully ? styles['code-fully'] : undefined,
-            className,
+            className
           )}
         >
           {node}
         </As>
       </Suspense>
-    )
-  })
-Markdown.displayName = 'Markdown'
+    );
+  });
+Markdown.displayName = "Markdown";
 
 export const MainMarkdown: FC<
   MdProps & MarkdownToJSX.Options & PropsWithChildren
 > = (props) => {
-  const { wrapperProps = {} } = props
+  const { wrapperProps = {} } = props;
   return (
     <Markdown
       as="main"
@@ -262,8 +262,8 @@ export const MainMarkdown: FC<
         () => ({
           ...wrapperProps,
         }),
-        [wrapperProps],
+        [wrapperProps]
       )}
     />
-  )
-}
+  );
+};
