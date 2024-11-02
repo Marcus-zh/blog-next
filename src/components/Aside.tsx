@@ -15,7 +15,7 @@ export function AsideLeft({ types, post }: AsideProps) {
   return (
     <>
       <aside className="w-[240px] max-sm:hidden">
-        <div className="widgets flex flex-col justify-center gap-4">
+        <div className="widgets flex flex-col justify-center gap-5">
           {types.map((item) => (
             <AsideWidgets key={item} item={item} post={post} />
           ))}
@@ -32,7 +32,7 @@ export function AsideLeft({ types, post }: AsideProps) {
 export function AsideRight({ types, post }: AsideProps) {
   return (
     <aside className="w-[240px] max-md:hidden">
-      <div className="widgets flex flex-col justify-center gap-4">
+      <div className="widgets flex flex-col justify-center gap-5">
         {types.map((item) => (
           <AsideWidgets key={item} item={item} post={post} />
         ))}

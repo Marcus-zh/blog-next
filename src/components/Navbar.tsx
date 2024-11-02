@@ -1,13 +1,14 @@
 import React from "react";
 import { Icon } from "@iconify/react";
-import { Link } from "@/interface/common";
+import { type LinkProps } from "@/interface/common";
 import Card from "@/components/Card";
+import Link from "next/link";
 
 export default function Navbar() {
   return (
     <header className="fixed top-0 left-0 w-full z-50 flex justify-center px-0 py-4 pointer-events-none">
       <nav>
-        <Card className="rounded-3xl bg-slate-500 dark:bg-zinc-700 opacity-80 px-4 py-0 text-4 shadow-2xl border-1 border-solid border-gray-400 pointer-events-auto">
+        <Card className="rounded-3xl bg-slate-500 dark:bg-zinc-500 opacity-80 px-4 py-0 text-4 shadow-2xl pointer-events-auto">
           <ul className="flex items-center font-semibold text-zinc-900 dark:text-white list-none">
             {[
               { name: "Home", url: "/" },
@@ -23,10 +24,10 @@ export default function Navbar() {
   );
 }
 
-function NavbarList(link: Link) {
+function NavbarList(link: LinkProps) {
   return (
     <li>
-      <a
+      <Link
         className="relative inline-block p-2"
         href={link.url}
       >
@@ -35,7 +36,7 @@ function NavbarList(link: Link) {
           className="absolute left-1 right-1 bottom-[-1px] h-1 bg-blue-500"
           style={{ display: "none" }}
         ></span>
-      </a>
+      </Link>
     </li>
   );
 }
