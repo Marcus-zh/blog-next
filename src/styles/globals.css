@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 :root {
   --theme-color: #425aef;
   --red: #d8213c;
@@ -12,7 +11,7 @@
   --text-color: #000000;
   --text-color-secondary: #ffffff;
   --card-background: #eeeeeeee;
-  --card-radius: .75rem;
+  --card-radius: 0.75rem;
   --card-blur: 10px;
   --card-shadow: 8px 8px 10px 0px rgba(0, 0, 0, 0.4);
   --gap-tiny: 5px;
@@ -26,28 +25,32 @@
     --background-color: #1c1e21;
     --text-color: #ffffff;
     --card-background: #222222;
-    --card-shadow: 0 10px 15px -3px rgba(121, 121, 121, 0.1), 0 4px 6px -2px rgba(192, 192, 192, 0.05);
+    --card-shadow: 0 10px 15px -3px rgba(121, 121, 121, 0.1),
+      0 4px 6px -2px rgba(192, 192, 192, 0.05);
+  }
+}
+@layer base {
+  html {
+    @apply font-sans;
+    @apply text-zinc-700;
+    @apply dark:text-zinc-100;
+    @apply bg-stone-200;
+    @apply dark:bg-stone-950;
+    @apply m-0;
+    @apply p-0;
+  }
+  code {
+    font-family: "MiSans VF";
   }
 }
 
-html {
-  color: var(--text-color);
-  background: var(--background-color);
-  margin: 0;
-  padding: 0;
-  font-family: 'MiSans VF';
-}
-
-code{
-  font-family: 'MiSans VF';
-}
-
-a{
+a {
   text-decoration: none !important;
 }
 
-a.link{
-  background: linear-gradient(rgba(68,153,238,0.4),rgba(68,153,238,0.4)) no-repeat center bottom / 100% 2px;
+a.link {
+  background: linear-gradient(rgba(68, 153, 238, 0.4), rgba(68, 153, 238, 0.4))
+    no-repeat center bottom / 100% 2px;
   transition: all 0.2s ease-out;
   -moz-transition: all 0.2s ease-out;
   -webkit-transition: all 0.2s ease-out;
@@ -56,9 +59,14 @@ a.link{
   @apply p-1;
 }
 
-a.link:hover{
+a.link:hover {
   @apply rounded-lg;
-  background: linear-gradient(0deg, rgba(68,153,238,0.4), rgba(68,153,238,0.4)) no-repeat left 100%/100% 100%
+  background: linear-gradient(
+      0deg,
+      rgba(68, 153, 238, 0.4),
+      rgba(68, 153, 238, 0.4)
+    )
+    no-repeat left 100%/100% 100%;
 }
 
 /* For Webkit-based browsers (Chrome, Safari and Opera) */
@@ -68,6 +76,6 @@ a.link:hover{
 
 /* For IE, Edge and Firefox */
 .scrollbar-hide {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }

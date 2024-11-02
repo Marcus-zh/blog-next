@@ -2,8 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-p > code:not([class]),
-li > code:not([class]) {
+article > p > code:not([class]),
+article > li > code:not([class]) {
   font-size: 85%;
   @apply bg-indigo-800;
   @apply font-semibold;
@@ -12,41 +12,41 @@ li > code:not([class]) {
   color: var(--text-code);
 }
 
-article{
+article {
   line-height: 2;
   word-break: break-word;
   white-space: pre-line;
-
 }
 
-blockquote {
+/* article > blockquote {
   padding: 1rem;
   @apply bg-zinc-600;
-  @apply rounded-2xl
-}
-ul{
+  @apply rounded-2xl;
+} */
+article > ul {
   list-style: none;
 }
-li {
+
+article > li {
   margin-left: 1rem;
 }
 
-article > h2{
+article > h2 {
   @apply text-3xl;
   @apply font-bold;
 }
 
-article > h3{
+article > h3 {
   @apply text-2xl;
   @apply font-semibold;
 }
 
-article > h4{
+article > h4 {
   @apply text-xl;
   @apply font-medium;
 }
 
-article > h5{
+article > h5 {
   @apply text-lg;
   @apply font-normal;
 }
@@ -59,7 +59,7 @@ article > h5{
   @apply flex;
   @apply items-start;
 }
-pre>code:before{
+figure > pre > code:before {
   content: attr(data-lang);
   @apply text-2xl;
   @apply font-bold;
@@ -67,88 +67,87 @@ pre>code:before{
   @apply absolute;
   @apply right-[calc(1.25rem+.5rem)];
 }
-code{
+figure:hover pre > code:before {
+  @apply opacity-0;
+}
+code {
   counter-reset: step;
   counter-increment: step 0;
 }
-pre>code>span:before{
+pre > code > .line:before {
   background-color: var(--shiki-dark-bg);
   content: counter(step);
   counter-increment: step;
   left: 1.25rem;
-  padding: 0 1em 0 .5em;
+  padding: 0 1em 0 0.5em;
   position: absolute;
   text-align: right;
   width: 1em;
-  color: #ABB2BF
+  color: #abb2bf;
 }
 
-
 .codeblock-header {
-    gap: 0.5em;
-    position: sticky;
-    top: 0;
-    height: 0;
-    background: linear-gradient(var(--c-bg-2), transparent);
-    z-index: 2;
+  gap: 0.5em;
+  position: sticky;
+  top: 0;
+  height: 0;
+  background: linear-gradient(var(--c-bg-2), transparent);
+  z-index: 2;
 }
 
 figcaption {
-    display: inline-block;
-    flex-shrink: 0;
-    position: sticky;
-    top: 0;
-    margin: 0 1em;
-    padding: 0.2em 0.8em;
-    border-radius: 0 0 8px 8px;
-    background-color: var(--c-border);
-    z-index: 1;
+  display: inline-block;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  margin: 0 1em;
+  padding: 0.2em 0.8em;
+  border-radius: 0 0 8px 8px;
+  background-color: var(--c-border);
+  z-index: 1;
 }
 
-.language, .operations {
-    position: absolute;
-    opacity: 0.4;
-    right: 0;
-    padding: 0.2em 0.8em;
-    transition: opacity 0.2s;
+.language,
+.operations {
+  position: absolute;
+  opacity: 0.4;
+  right: 0;
+  padding: 0.2em 0.8em;
+  transition: opacity 0.2s;
 }
 
 .operations {
-    gap: 0.5em 1em;
-    opacity: 0;
+  gap: 0.5em 1em;
+  opacity: 0;
 }
-.operations> button {
-    opacity: 0.4;
-    color: inherit;
-    transition: opacity 0.2s;
-    cursor: pointer;
+.operations > button {
+  opacity: 0.4;
+  color: inherit;
+  transition: opacity 0.2s;
+  cursor: pointer;
 }
-.operations> button :hover {
-            opacity: 1;
-        }
-
-.operations, button {
-            margin-left: 1em;
+.operations > button :hover {
+  opacity: 1;
 }
 
-/* &:hover {
-    .language {
-        opacity: 0;
-    }
-
-    .operations {
-        opacity: 1;
-    }
-} */
+.operations,
+button {
+  margin-left: 1em;
+}
+figure:hover .operations {
+  opacity: 1;
+}
+/*
 
 pre {
-    --line-number-width: 0px;
-    overflow: auto;
-    padding: 1rem;
+  --line-number-width: 0px;
+  overflow: auto;
+  padding: 1rem;
 }
 
 .shiki > pre {
-    --line-number-width: 4em;
+  --line-number-width: 4em;
 
-    padding-left: var(--line-number-width);
+  padding-left: var(--line-number-width);
 }
+*/
