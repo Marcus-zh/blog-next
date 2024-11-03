@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "@/styles/globals.css";
 import { Config } from "@/Config";
 import { Analytics } from "@vercel/analytics/react";
+import { Insights } from "@/components/vercel/SpeedInsights";
 import NextTopLoader from "nextjs-toploader";
 import { Providers } from "./providers";
 
@@ -31,8 +32,9 @@ export default function RootLayout({
           <main className="flex justify-center items-start w-[100%] mt-20 gap-5">
             {children}
           </main>
-          <Analytics />
         </Providers>
+        <Analytics />
+        <Insights />
       </body>
     </html>
   );
