@@ -83,7 +83,7 @@ export const ShikiWrapper = forwardRef<
   const filename = parseFilenameFromAttrs(attrs || "");
 
   return (
-    <div className="codeBlock flex  gap-0 flex-col max-w-full">
+    <div className="codeBlock flex gap-0 flex-col max-w-full overflow-hidden">
       <div className="codeHeader w-full bg-[#282c34] flex items-center justify-between px-6 pt-2 rounded-t-lg">
         <div className="window-controls m-[2px] flex float-left gap-[10px]">
           <button className="w-[15px] h-[15px] rounded-full bg-[#ff5f5a] group flex items-center justify-center">
@@ -104,7 +104,7 @@ export const ShikiWrapper = forwardRef<
             /></button>
         </div>
         {filename && <span className="filename pr-8">{filename}</span>}
-        <button onClick={handleCopy} className="copyButton w-[15px] h-[15px]">
+        <button onClick={handleCopy} className="copyButton w-[15px] h-[15px] text-[]">
           {copied ? (
             <Icon icon="tabler:copy-check" />
           ) : (
@@ -115,7 +115,7 @@ export const ShikiWrapper = forwardRef<
       <div
         onCopy={(e) => e.stopPropagation}
         ref={codeBlockRef}
-        className="scrollbar-hide overflow-x-auto overscroll-y-none before:content-[attr(data-lang)] before:absolute before:right-8 before:font-bold before:text-3xl before:opacity-70 hover:before:opacity-0 before:transition-transform-opacity"
+        className="scrollbar-hide overflow-x-auto overscroll-y-none relative before:content-[attr(data-lang)] before:absolute before:right-8 before:font-bold before:text-3xl before:opacity-70 hover:before:opacity-0 before:transition-transform-opacity"
         data-lang={language}
         dangerouslySetInnerHTML={{ __html: props.renderedHTML! }}
       ></div>

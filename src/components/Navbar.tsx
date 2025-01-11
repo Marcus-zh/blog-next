@@ -8,7 +8,7 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 left-0 w-full z-50 flex justify-center px-0 py-4 pointer-events-none">
       <nav>
-        <Card className="rounded-3xl bg-slate-500 dark:bg-zinc-500 opacity-80 px-4 py-0 text-4 shadow-2xl pointer-events-auto">
+        <Card className="rounded-3xl opacity-90 px-4 py-0 text-4 shadow-2xl pointer-events-auto">
           <ul className="flex items-center font-semibold text-zinc-900 dark:text-white list-none">
             {[
               { name: "Home", url: "/" },
