@@ -83,7 +83,7 @@ export const ShikiWrapper = forwardRef<
   const filename = parseFilenameFromAttrs(attrs || "");
 
   return (
-    <div className="codeBlock flex gap-0 flex-col max-w-full overflow-hidden">
+    <div className="codeBlock flex gap-0 flex-col max-w-full overflow-hidden my-8">
       <div className="codeHeader w-full bg-[#282c34] flex items-center justify-between px-6 pt-2 rounded-t-lg">
         <div className="window-controls m-[2px] flex float-left gap-[10px]">
           <button className="w-[15px] h-[15px] rounded-full bg-[#ff5f5a] group flex items-center justify-center">
@@ -115,8 +115,8 @@ export const ShikiWrapper = forwardRef<
       <div
         onCopy={(e) => e.stopPropagation}
         ref={codeBlockRef}
-        className="scrollbar-hide overflow-x-auto overscroll-y-none relative before:content-[attr(data-lang)] before:absolute before:right-8 before:font-bold before:text-3xl before:opacity-70 hover:before:opacity-0 before:transition-transform-opacity"
-        data-lang={language}
+        className="scrollbar-hide overflow-x-auto overscroll-y-none relative before:content-[attr(data-lang)] before:absolute before:right-6 before:font-bold before:text-2xl before:opacity-60 hover:before:opacity-0 before:transition-transform-opacity"
+        data-lang={language?.toLocaleUpperCase()}
         dangerouslySetInnerHTML={{ __html: props.renderedHTML! }}
       ></div>
     </div>

@@ -20,6 +20,8 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
 export default async function Post({ params }: { params: { slug: string } }) {
   const { slug } = params;
   let post = getPostBySlug(decodeURIComponent(slug), [
+    "title",
+    "tags",
     "content",
     "cover",
     "toc",
@@ -28,8 +30,12 @@ export default async function Post({ params }: { params: { slug: string } }) {
     <>
       {/* <AsideLeft types={Config.aside.posts.left} /> */}
       <div className="post flex flex-col gap-5 w-[calc(40%+240px+1.25rem)] max-md:w-[90%]">
+        {/* <Card>
+          <h1>{post.title}</h1>
+          <span>{post.tags}</span>
+        </Card> */}
         <Card className="flex-wrap w-full" hidden={true}>
-          <Markdown value={post.content} as="article" className="prose prose-zinc dark:prose-invert prose-lg p-5 prose-a:link prose-pre:rounded-t-none prose-pre:m-0 prose-pre:overscroll-none prose-pre:scrollbar-hide max-w-full prose-code:before:content-none prose-code:after:content-none prose-code:font-mono prose-code:bg-[gre]" />
+          <Markdown value={post.content} as="article" className="prose prose-zinc dark:prose-invert prose-lg prose-a:link prose-pre:rounded-t-none prose-pre:m-0 prose-pre:scrollbar-hide max-w-full prose-code:before:content-none prose-code:after:content-none prose-pre:font-semibold" />
         </Card>
         {Config.waline && <Waline {...Config.waline} path={"/posts/" + slug} />}
       </div>

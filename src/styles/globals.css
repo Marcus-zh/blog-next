@@ -4,10 +4,7 @@
 
 @layer base {
   html {
-    @apply font-sans text-zinc-700 dark:text-zinc-100 bg-stone-200 dark:bg-stone-950 m-0 p-0;
-  }
-  code {
-    font-family: "MiSans VF";
+    @apply font-sans text-[var(--fallback-bc,oklch(var(--bc)/0.8))] !bg-[#] !dark:bg-[#1C1C1E] m-0 p-0;
   }
 }
 
@@ -66,4 +63,32 @@ a.link:hover {
       )
       no-repeat left 100%/100% 100%;
   }
+}
+
+@layer base {
+  html.dark {
+    --bc: 100% 0 0;
+  }
+  html.light{
+    --bc: 0% 0 0;
+  }
+}
+
+:root .prose {
+  --tw-prose-body: var(--fallback-bc,oklch(var(--bc)/0.8));
+  --tw-prose-headings: var(--fallback-bc,oklch(var(--bc)/1));
+  --tw-prose-lead: var(--fallback-bc,oklch(var(--bc)/1));
+  --tw-prose-links: var(--fallback-bc,oklch(var(--bc)/1));
+  --tw-prose-bold: var(--fallback-bc,oklch(var(--bc)/1));
+  --tw-prose-counters: var(--fallback-bc,oklch(var(--bc)/1));
+  --tw-prose-bullets: var(--fallback-bc,oklch(var(--bc)/0.5));
+  --tw-prose-hr: var(--fallback-bc,oklch(var(--bc)/0.2));
+  --tw-prose-quotes: var(--fallback-bc,oklch(var(--bc)/1));
+  --tw-prose-quote-borders: var(--fallback-bc,oklch(var(--bc)/0.2));
+  --tw-prose-captions: var(--fallback-bc,oklch(var(--bc)/0.5));
+  --tw-prose-code: var(--fallback-bc,oklch(var(--bc)/1));
+  --tw-prose-pre-code: var(--fallback-nc,oklch(var(--nc)/1));
+  --tw-prose-pre-bg: var(--fallback-n,oklch(var(--n)/1));
+  --tw-prose-th-borders: var(--fallback-bc,oklch(var(--bc)/0.5));
+  --tw-prose-td-borders: var(--fallback-bc,oklch(var(--bc)/0.2));
 }

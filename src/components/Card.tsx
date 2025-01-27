@@ -28,7 +28,7 @@ export default function Card({
     //   )}
     //   {children}
     // </div>
-    <MCard className={clsxm(className,hidden?'bg-transparent shadow-none border-none':'')}>
+    <MCard className={clsxm("dark:bg-[#303030]",className,hidden?'!bg-transparent shadow-none border-none ':'')}>
       {tip && (
         <span className="absolute top-[-23px] left-5 text-zinc-800 dark:text-zinc-600 text-sm">
           {tip}
