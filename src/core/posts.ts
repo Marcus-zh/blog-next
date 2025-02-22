@@ -3,7 +3,7 @@ import fs from "fs";
 import { cache } from "react";
 import matter from "gray-matter";
 
-import Post, { Toc } from "@/interface/post";
+import Post from "@/interface/post";
 import { formatDate } from "@/utils/format";
 
 interface Item {
@@ -26,7 +26,6 @@ export const getPostBySlug = cache((slug: string, fields: string[] = []) => {
     tags: [],
     categories: [],
     cover: "",
-    toc: [],
   };
 
   if (!slug) {
