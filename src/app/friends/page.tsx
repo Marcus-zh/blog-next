@@ -10,10 +10,10 @@ import {
   LinkCardSmall,
   Title,
 } from "@/components/Friends/LinkCard";
-export const dynamic = "force-dynamic"; // 强制动态渲染
+
 export default async function Friends() {
   // try {
-  const data = await fetch("http://localhost:3000/api/friends", {
+  const data = await fetch("https://blog-next.marcus233.top/api/friends", {
     method: "GET",
   });
 
