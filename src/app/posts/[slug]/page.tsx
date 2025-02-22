@@ -30,12 +30,12 @@ export default async function Post({ params }: { params: { slug: string } }) {
     <>
       {/* <AsideLeft types={Config.aside.posts.left} /> */}
       <div className="post flex flex-col gap-5 w-[calc(40%+240px+1.25rem)] max-md:w-[90%]">
-        {/* <Card>
-          <h1>{post.title}</h1>
-          <span>{post.tags}</span>
+        {/* TODO */}
+        {/* <Card className="banner p-5 markdown  ">
+          <div className="bg absolute w-full h-full" style={{backgroundImage: post.cover}}></div>
         </Card> */}
         <Card className="flex-wrap w-full" hidden={true}>
-          <Markdown value={post.content} as="article" className="prose prose-zinc dark:prose-invert prose-lg prose-a:link prose-pre:rounded-t-none prose-pre:m-0 prose-pre:scrollbar-hide max-w-full prose-code:before:content-none prose-code:after:content-none prose-pre:font-semibold" />
+          <Markdown value={post.content} as="article" className="markdown" />
         </Card>
         {Config.waline && <Waline {...Config.waline} path={"/posts/" + slug} />}
       </div>
