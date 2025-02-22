@@ -16,7 +16,7 @@ export function LinkCardLarge({
       animate={{ x: 0, y: 0, opacity: 1 }}
       initial={{ x: -5, y: -10, opacity: 0 }}
       transition={{ duration: 0.4, delay: 0.1 * id + 0.2 }}
-      className="w-[calc(100%/6-1.25rem)]"
+      className="lg:w-[calc(100%/5-1.25rem)] md:w-[calc(100%/3-1.25rem)] w-[calc(100%/2-1.25rem)]"
     >
       <Card>
         <a href={siteLink} className="flex flex-col" target="_blank">
@@ -64,7 +64,7 @@ export function LinkCardMedium({
         // scale 的动画保持无延迟
         scale: { duration: 0.1 }
       }}
-      className="w-[calc(100%/5-1.25rem)]"
+      className="lg:w-[calc(100%/5-1.25rem)] md:w-[calc(100%/3-1.25rem)] w-[calc(100%/2-1.25rem)]"
     >
       <Card className="items-center h-full">
         <a href={siteLink} className="flex flex-row p-2 w-full" target="_blank">
@@ -108,9 +108,9 @@ export function LinkCardForRedish({
         opacity: { duration: 0.1, delay: time },
         // scale 的动画保持无延迟
         scale: { duration: 0.1 }
-      }}
-      className="group w-[calc(100%/5-1.25rem)]"
-    >
+            }}
+            className="group lg:w-[calc(100%/5-1.25rem)] md:w-[calc(100%/3-1.25rem)] w-[calc(100%/2-1.25rem)]"
+          >
       <Card className="items-center h-full">
         <a href={siteLink} className="flex flex-row p-2 w-full" target="_blank">
             <div className="cover w-[40%] flex items-center">
@@ -118,7 +118,7 @@ export function LinkCardForRedish({
               src="https://q1.qlogo.cn/g?b=qq&nk=3974549032&s=5"
               alt={siteName}
               className="object-cover w-full h-full rounded-full"
-              whileHover={{ rotate: 36000000, scale: 10 }}
+              whileHover={{ rotate: 360000, scale: 100 }}
               transition={{duration: 3600}}
               />
             </div>
@@ -153,7 +153,7 @@ export function LinkCardSmall({
         // scale 的动画保持无延迟
         scale: { duration: 0.1 }
       }}
-      className="w-[calc(100%/5-1.25rem)]"
+      className="lg:w-[calc(100%/5-1.25rem)] md:w-[calc(100%/3-1.25rem)] w-[calc(100%/2-1.25rem)]"
     >
       <Card className="flex-row p-2 gap-2">
         <span className="name w-full overflow-hidden text-ellipsis whitespace-nowrap max-w-[calc(100%-0.5rem)]">
