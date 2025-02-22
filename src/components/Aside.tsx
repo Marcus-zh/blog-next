@@ -1,9 +1,9 @@
-import { TocItem } from "remark-flexible-toc";
+// import { TocItem } from "remark-flexible-toc";
 import Info from "./Widgets/Info";
 import Logo from "./Widgets/Logo";
 import Search from "./Widgets/Search";
 import Tags from "./Widgets/Tags";
-import Toc from "./Widgets/Toc";
+// import Toc from "./Widgets/Toc";
 import Post from "@/interface/post";
 
 interface AsideProps {
@@ -51,9 +51,9 @@ function AsideWidgets({ item, post }: { item: string; post?: Post }) {
       return <Tags />;
     case "Info":
       return <Info />;
-    case "Toc":
-      if (post) {
-        return <Toc toc={post.toc} />;
-      }
+    // case "Toc":
+    //   if (post) {
+    //     return <Toc toc={post.toc} />;
+    //   }
   }
 }
