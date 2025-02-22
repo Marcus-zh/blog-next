@@ -27,7 +27,6 @@ Cloudreve 可以让您快速搭建起公私兼备的网盘系统。Cloudreve 在
 ## 快速搭建
 新建一个bash项目
 console或shell内输入以下代码
-![2022.7.28.一.png][1]
 
 ```shell
 wget https://github.com/cloudreve/Cloudreve/releases/download/3.5.3/cloudreve_3.5.3_linux_amd64.tar.gz

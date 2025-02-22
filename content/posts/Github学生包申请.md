@@ -1,35 +1,21 @@
 ---
-
 title: Github学生包申请
-
 categories:
   - 经验分享
-
 tags:
   - Github
   - 学生权益
   - 白嫖
-
 description: Github学生包申请
-
 keywords: Github,学生包,申请
-
-cover: https://img.marcus233.top/i/24/03/65ed663edaf73.webp
-
+cover: https://img2.marcus233.top/25/02/fcb0d1cf589fdb94.png
 tcolor: 0a3850
-
 abbrlink: 14c68eb
-
 date: 2023-12-01 19:33:53
-
 updated: 
-
 top_group_index: 
-
 layout: 
-
 comments:
-
 ---
 
 ## 申请准备
@@ -86,7 +72,7 @@ comments:
 
 完善[Github billing information](https://github.com/settings/billing/payment_information)(不必添加付款方式)
 
-![Github billing information](http://img.marcus.sitenav.cn/i/2023/12/6575178090fa2.webp)
+![image-20231202151212294.png](https://img2.marcus233.top/25/02/14643e3742659c68.png)
 
 完善[Public profile](https://github.com/settings/profile)的Bio等
 
@@ -139,11 +125,11 @@ comments:
 
 如果逾期仍然未通过,你可以开个工单问问,提交尽可能多的材料然后开个工单蹲人工
 
-![3次通过!](http://img.marcus.sitenav.cn/i/2023/12/657517a7d86bc.webp)
+![image-20231202152833141.png](https://img2.marcus233.top/25/02/bcb64b0a92c80df4.png)
 
 权益一般会先来,再是邮件(我是11.23申请,11.24通过,11.27发邮件)
 
-![通过啦!](http://img.marcus.sitenav.cn/i/2023/12/657517bef1978.webp)
+![image-20231202153458723.png](https://img2.marcus233.top/25/02/9b5dc085c38ec172.png)
 
 (部分内容来自[关于申请 Github 学生认证的一些坑 - Ghost_chu's Blog (ghostchu.com)](https://www.ghostchu.com/github-education/))
 
@@ -157,8 +143,8 @@ comments:
 
 如果之前有使用了cocopilot的
 1. 先删去`.vscode/extensions/github.copilot-1.xxx.xxx/dist/extension.js`的第一排环境变量
+![image-20231202154121000.png](https://img2.marcus233.top/25/02/90df91603b74dbba.png)
 
-![extension.js](http://img.marcus.sitenav.cn/i/2023/12/657517d3b5cd3.webp)
 2. 再在vscode中`ctrl+shift+p`键入`setting`打开`setting.json`
 3. 删除关于`copilot`的一切配置项(尤其是`cocoiplot.org`代理链接)
 4. `ctrl+shift+p`键入`reload`重启vscode

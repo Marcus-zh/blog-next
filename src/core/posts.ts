@@ -10,7 +10,7 @@ interface Item {
   [key: string]: string[];
 }
 
-export const postsDirectory = join(process.cwd(), "article", "posts");
+export const postsDirectory = join(process.cwd(), "content", "posts");
 
 export const getPostSlugs = cache(() => {
   return fs.readdirSync(postsDirectory);
@@ -69,7 +69,12 @@ export const getPostBySlug = cache((slug: string, fields: string[] = []) => {
 // 获取所有文章的内容
 export const getAllPosts = cache((fields: string[] = []) => {
   const slugs = getPostSlugs();
-  const posts: Post[] = slugs.map((slug) => getPostBySlug(slug.replace(".md",""), fields));
+  const posts: Post[] = slugs.map((slug) => {
+    if (!slug.startsWith("_")) {
+      return getPostBySlug(slug.replace(".md", ""), fields);
+    }
+    return undefined;
+  }).filter((post): post is Post => post !== undefined);
   return posts.sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
 });
 

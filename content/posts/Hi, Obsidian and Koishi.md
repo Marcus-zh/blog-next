@@ -11,7 +11,7 @@ tags:
 categories:
   - 经验分享
   - 软件推荐
-cover: https://img.marcus233.top/i/24/03/65ed61ae0be4f.webp
+cover: https://img1.marcus233.top/25/02/396f124f0697f62d.png
 tcolor: CD3CDA
 ---
 ## 起因
@@ -45,6 +45,7 @@ tcolor: CD3CDA
 
 分享下我的插件
 
+![Obsidian 插件](https://img2.marcus233.top/25/02/d2e49abdf79fc634.png)
 
 ## 下载&配置koishi
 

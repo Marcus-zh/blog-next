@@ -7,10 +7,10 @@ tags:
   - 游戏
 description: STEAM游戏《PP》推荐
 keywords: STEAM,游戏
-abbrlink: steam001
+abbrlink: steam-pp
 date: 2023-08-19 20:55:01
 updated: 
-cover: https://img.marcus233.top/i/24/03/65ed66c636f4a.webp
+cover: https://img2.marcus233.top/25/02/6f9b9bf74ec1f38d.png
 tcolor: "514844"
 ---
 
