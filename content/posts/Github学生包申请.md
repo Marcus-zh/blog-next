@@ -21,8 +21,10 @@ comments:
 ## 申请准备
 
 首先看看官网说明
+
 > **To qualify for student benefits, you must:
 > 要获得学生福利的资格,您必须:**
+>
 > - Have a GitHub account.
 >   拥有 GitHub 帐户
 > - Be at least 13 years old.
@@ -49,6 +51,7 @@ comments:
 >
 
 总的来说,请先确保你要满足以下要求:
+
 - 拥有Github账号(不多叙述)
 - 学校没有被美国制裁(通过群友得知)
 - 学校下发的成绩单,奖状,学生卡或者其他任何可以证明你是**在读学生**的材料(英文最好)
@@ -57,12 +60,14 @@ comments:
 - 手和脑子😜
 
 你可以附加的条件:
+
 - 学校下发的电子邮箱(通过速度更快)
 - 手写小纸条(包含Github usename,Github id,School name)
 
 ### 关于是否必须需要edu电子邮箱
 
 不需要,官方已经说明
+
 > If your school does not provide academic email then you must enable use of your device camera to capture your image.
 > 如果您的学校不提供学术电子邮件,那么您必须启用使用设备摄像头来捕获图像
 
@@ -81,6 +86,7 @@ comments:
 根据表单指引一步一步来即可
 
 但是有一些小技巧:
+
 - 如果找不到自己学校可以选择学校的分校区或者其他部(不建议自己填写有关学校的更多信息)
 - 提前开启定位
 - 使用像素高一点的摄像头
@@ -88,6 +94,7 @@ comments:
 ### 关于上传的证明资料
 
 建议这样构图
+
 - 左边拿着你的证明资料
 - 右边拿着小纸条
 - 露脸,可以穿校服
@@ -95,6 +102,7 @@ comments:
 (我就是这样过的)
 
 验证提供后就可以等着了,但通过不包括邮件
+
 > 😢 @MarcusYYDS
 >
 > Hey **Marcus233**,Unfortunately, we were unable to verify your academic affiliation based on the information you submitted on Nov 19, 2023 for [@MarcusYYDS](https://github.com/MarcusYYDS).
@@ -103,7 +111,7 @@ comments:
 >
 > If your school does not provide academic email then you must enable use of your device camera to capture your image.
 >
-> Please consider using your device camera to submit academic affiliation documents. Uploaded images are more easily manipulated and are therefore less trustworthy. 
+> Please consider using your device camera to submit academic affiliation documents. Uploaded images are more easily manipulated and are therefore less trustworthy.
 >
 > Once you have resolved the issues with your sumbission, [visit us again and reapply](https://education.github.com/).Have questions? Join the [GitHub Education Community](https://github.com/orgs/community/discussions/categories/github-education) for answers.💖 The GitHub Education Team
 
@@ -112,6 +120,7 @@ comments:
 ### 善用工单
 
 在开启工单之前,你需要知道的几点:
+
 - Github 无权在工单中审核你的材料,你所有的材料必须提交到审核平台
 - 如果提交完新的材料立刻被打回,是自动审核程序干的,你可以等等人工来审核
 - 工单可以告诉你你哪里没有满足要求,然后你可以对照提交所需的材料,但无法帮你直接修改为 Approved
@@ -135,16 +144,16 @@ comments:
 
 如果没过
 
-则[申请准备()](#申请准备)
+则[申请准备()](/#:r0:)
 
 ## 权益使用
 
 ### Github copilot
 
 如果之前有使用了cocopilot的
+
 1. 先删去`.vscode/extensions/github.copilot-1.xxx.xxx/dist/extension.js`的第一排环境变量
 ![image-20231202154121000.png](https://img2.marcus233.top/25/02/90df91603b74dbba.png)
-
 2. 再在vscode中`ctrl+shift+p`键入`setting`打开`setting.json`
 3. 删除关于`copilot`的一切配置项(尤其是`cocoiplot.org`代理链接)
 4. `ctrl+shift+p`键入`reload`重启vscode
@@ -154,4 +163,3 @@ comments:
 ## 感谢链接
 
 [关于申请 Github 学生认证的一些坑 - Ghost_chu's Blog (ghostchu.com)](https://www.ghostchu.com/github-education/)
-

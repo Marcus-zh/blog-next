@@ -4,6 +4,8 @@ import { AsideLeft, AsideRight } from "@/components/Aside";
 import { Config } from "@/Config";
 import Waline from "@/components/Posts/Comments";
 import { Markdown } from "@/components/ui/markdown/markdown";
+import { motion } from "framer-motion";
+import Banner from "@/components/Posts/Banner";
 
 export function generateMetadata({ params }: { params: { slug: string } }) {
   const { slug } = params;
@@ -22,6 +24,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
   let post = getPostBySlug(decodeURIComponent(slug), [
     "title",
     "tags",
+    "categories",
     "content",
     "cover",
     "toc",
@@ -31,9 +34,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
       {/* <AsideLeft types={Config.aside.posts.left} /> */}
       <div className="post flex flex-col gap-5 w-[calc(40%+240px+1.25rem)] max-md:w-[90%]">
         {/* TODO */}
-        {/* <Card className="banner p-5 markdown  ">
-          <div className="bg absolute w-full h-full" style={{backgroundImage: post.cover}}></div>
-        </Card> */}
+        <Banner {...post} />
         <Card className="flex-wrap w-full" hidden={true}>
           <Markdown value={post.content} as="article" className="markdown" />
         </Card>
