@@ -5,7 +5,8 @@ import { Config } from "@/Config";
 import Waline from "@/components/Posts/Comments";
 import { Markdown } from "@/components/ui/markdown/markdown";
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
+export async function generateMetadata(props: { params: Promise<{ slug: string }> }) {
+  const params = await props.params;
   const { slug } = params;
   const { title, description } = getPostBySlug(decodeURIComponent(slug), [
     "title",
@@ -17,7 +18,8 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
   };
 }
 
-export default async function Post({ params }: { params: { slug: string } }) {
+export default async function Post(props: { params: Promise<{ slug: string }> }) {
+  const params = await props.params;
   const { slug } = params;
   let post = getPostBySlug(decodeURIComponent(slug), [
     "content",

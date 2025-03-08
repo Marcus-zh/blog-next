@@ -31,7 +31,7 @@ export const ShikiWrapper = forwardRef<
 
   // innei佬写的对
   const [copied, setCopied] = useState(false);
-  const copiedTimerRef = useRef<any>();
+  const copiedTimerRef = useRef<any>(undefined);
   const handleCopy = useCallback(() => {
     if (isServerSide) return;
     navigator.clipboard.writeText(value);
