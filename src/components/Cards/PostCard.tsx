@@ -15,7 +15,7 @@ export default function PostCard({
 }: Post) {
   return (
     <Card className="w-[100%] h-40">
-      <article className="flex flex-row justify-center items-center w-full">
+      <article className="flex flex-row justify-center items-center w-full h-full">
         <div
           className={clsxm(
             "info",

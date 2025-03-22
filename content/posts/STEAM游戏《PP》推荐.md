@@ -7,19 +7,18 @@ tags:
   - 游戏
 description: STEAM游戏《PP》推荐
 keywords: STEAM,游戏
-abbrlink: steam001
+abbrlink: steam-pp
 date: 2023-08-19 20:55:01
 updated: 
-cover: https://img.marcus233.top/i/24/03/65ed66c636f4a.webp
+cover: https://img2.marcus233.top/25/02/6f9b9bf74ec1f38d.png
 tcolor: "514844"
 ---
 
 ## 序言
+
 最近逛B站,发现了UP主[-乌鸦男-](https://space.bilibili.com/38899675?spm_id_from=333.337.search-card.all.click)的一款好玩的游戏
 
 <!-- more -->
-
-{% bilibili https://www.bilibili.com/video/BV1cu41157Hs 15:45 %}
 
 然后上Steam一看
 
@@ -50,8 +49,6 @@ tcolor: "514844"
 但是整体还是挺好玩的,作为一款~~休闲~~游戏,真的令我血压增高(点名批评第七关,太难掌握时机了)
 
 B站上也有通关教程(但你有了也通不了关)
-
-{% bilibili https://www.bilibili.com/video/BV1Kj411B7er 14:50 %}
 
 ## 评分
 

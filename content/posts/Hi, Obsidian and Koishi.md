@@ -11,7 +11,7 @@ tags:
 categories:
   - 经验分享
   - 软件推荐
-cover: https://img.marcus233.top/i/24/03/65ed61ae0be4f.webp
+cover: https://img1.marcus233.top/25/02/396f124f0697f62d.png
 tcolor: CD3CDA
 ---
 ## 起因
@@ -45,11 +45,13 @@ tcolor: CD3CDA
 
 分享下我的插件
 
+![Obsidian 插件](https://img2.marcus233.top/25/02/d2e49abdf79fc634.png)
 
 ## 下载&配置koishi
 
 下载直接1panel中下载或者 [选择安装方式 | Koishi](https://koishi.chat/zh-CN/manual/starter/)
 配置的话有几个想吐槽的点
+
 1. 本来就因为各个厂商给的api用法不同,导致企业微信的体验极差(比如说图片发不出来)
 2. 有些插件,连个说明都没有,只能自己摸索
 3. 插件安装了不会立即跳转至插件页面,而且插件不会自动显示在插件页面,必须自己添加或者从插件商城里面进去配置(指令一样的)

@@ -3,14 +3,14 @@ import fs from "fs";
 import { cache } from "react";
 import matter from "gray-matter";
 
-import Post, { Toc } from "@/interface/post";
+import Post from "@/interface/post";
 import { formatDate } from "@/utils/format";
 
 interface Item {
   [key: string]: string[];
 }
 
-export const postsDirectory = join(process.cwd(), "article", "posts");
+export const postsDirectory = join(process.cwd(), "content", "posts");
 
 export const getPostSlugs = cache(() => {
   return fs.readdirSync(postsDirectory);
@@ -26,7 +26,6 @@ export const getPostBySlug = cache((slug: string, fields: string[] = []) => {
     tags: [],
     categories: [],
     cover: "",
-    toc: [],
   };
 
   if (!slug) {
@@ -69,7 +68,12 @@ export const getPostBySlug = cache((slug: string, fields: string[] = []) => {
 // 获取所有文章的内容
 export const getAllPosts = cache((fields: string[] = []) => {
   const slugs = getPostSlugs();
-  const posts: Post[] = slugs.map((slug) => getPostBySlug(slug.replace(".md",""), fields));
+  const posts: Post[] = slugs.map((slug) => {
+    if (!slug.startsWith("_")) {
+      return getPostBySlug(slug.replace(".md", ""), fields);
+    }
+    return undefined;
+  }).filter((post): post is Post => post !== undefined);
   return posts.sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
 });
 

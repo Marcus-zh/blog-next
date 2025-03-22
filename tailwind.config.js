@@ -9,6 +9,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ["MiSans VF", "sans-serif"],
+        mono: ["Monaspace Krypton","monospace","Consolas",'Courier New']
       },
     },
   },
