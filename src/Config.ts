@@ -30,6 +30,19 @@ export const Config: Config = {
       right: ["Info"],
     },
   },
+  footer: {
+    left: {
+      year: 2022,
+      links: [
+        { name: "RSS", url: "/atom.xml"},
+        { name: "GitHub", url: "https://github.com/Marcus-zh" }
+      ],
+      icp: {name: "萌ICP备20230221号",url: "https://icp.gov.moe/?keyword=20230221"}
+    },
+    right: {
+      themeSwitch: true,
+    },
+  },
   waline: {
     serverURL: "https://waline.marcus233.top",
     path: "",

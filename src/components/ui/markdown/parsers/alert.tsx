@@ -7,10 +7,11 @@ import { Markdown } from "../markdown";
 import { warning } from "framer-motion";
 import { error } from "console";
 import { Icon } from "@iconify/react";
-import { clsxm } from "@/utils/helper";
+import { cn } from "@/utils/helper";
 
-
-const typeMap: { [key: string]: { text: string; border: string; icon: string } } = {
+const typeMap: {
+  [key: string]: { text: string; border: string; icon: string };
+} = {
   tip: {
     text: "text-green-500 dark:text-green-400",
     border: "before:border-green-500 dark:before:border-green-400",
@@ -38,19 +39,17 @@ export const AlertIcon: FC<{
 }> = ({ type }) => {
   const finalType = type || "NOTE";
   const icon = typeMap[finalType].icon || typeMap.tip.icon;
-  const typePrefix = finalType.toUpperCase()
+  const typePrefix = finalType.toUpperCase();
 
   return (
     <span
-      className={clsxm(
+      className={cn(
         "text-semibold mb-1 inline-flex items-center",
         typeMap[finalType].text
       )}
     >
       <Icon
-        className={clsxm(
-          `shrink-0 text-3xl md:mr-2 md:self-start md:text-left`,
-        )}
+        className={cn(`shrink-0 text-3xl md:mr-2 md:self-start md:text-left`)}
         icon={icon}
       />
 
@@ -66,7 +65,7 @@ export const AlertIcon: FC<{
  */
 const ALERT_BLOCKQUOTE_R =
   // @ts-ignore
-  /^(> \[!(?<type>tip|note|warning|error)\].*)(?<body>(?:\n *>.*)*)(?=\n{2,}|$)/
+  /^(> \[!(?<type>tip|note|warning|error)\].*)(?<body>(?:\n *>.*)*)(?=\n{2,}|$)/;
 
 export const AlertsRule: MarkdownToJSX.Rule = {
   match: blockRegex(ALERT_BLOCKQUOTE_R),
@@ -84,7 +83,10 @@ export const AlertsRule: MarkdownToJSX.Rule = {
     const bodyClean = body.replaceAll(/^> */gm, "");
 
     return (
-      <blockquote className={clsx(typeMap[type].border, "not-italic")} key={state.key}>
+      <blockquote
+        className={clsx(typeMap[type].border, "not-italic")}
+        key={state.key}
+      >
         <AlertIcon type={type} />
         <br />
 

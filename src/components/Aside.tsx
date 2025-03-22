@@ -1,9 +1,4 @@
-// import { TocItem } from "remark-flexible-toc";
-import Info from "./Widgets/Info";
-import Logo from "./Widgets/Logo";
-import Search from "./Widgets/Search";
-import Tags from "./Widgets/Tags";
-// import Toc from "./Widgets/Toc";
+import { Info, Logo, Search, Tags } from "@/components/Widgets";
 import Post from "@/interface/post";
 
 interface AsideProps {

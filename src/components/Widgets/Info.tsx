@@ -3,13 +3,13 @@ import { getAllSameFieldPosts } from "@/core/posts";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
 
-export default function Info() {
+export function Info() {
   return (
     <Card className="tags flex flex-col p-5 gap-2" key="tags" tip="Info">
       <div className="flex flex-row gap-1 items-center">
         <Icon icon="tabler:calendar" />
         <p>
-          日期: <span>2023-09-01</span>
+          天数: <span>2023-09-01</span>
         </p>
       </div>
       <div className="flex flex-row gap-1 items-center">

@@ -1,7 +1,7 @@
 import Card from "@/components/Card";
 import { Config } from "@/Config";
 
-export default function Logo() {
+export function Logo() {
   return (
     <Card className="logo flex flex-col gap-2 p-5" key="logo">
       <div className="flex items-center gap-2">

@@ -4,7 +4,7 @@
 
 @layer base {
   html {
-    @apply font-sans text-[var(--fallback-bc,oklch(var(--bc)/0.8))] !bg-[#f1f1f1] dark:!bg-[#1C1C1E] m-0 p-0;
+    @apply font-sans text-[var(--fallback-bc,oklch(var(--bc)/0.8))] m-0 p-0;
   }
 }
 
@@ -68,6 +68,12 @@ a.link:hover {
   .markdown {
     @apply prose prose-zinc dark:prose-invert prose-lg prose-a:link prose-pre:rounded-t-none prose-pre:m-0 prose-pre:scrollbar-hide max-w-full prose-code:before:content-none prose-code:after:content-none prose-pre:font-semibold;
   }
+  .link-primary{
+    @apply rounded-lg p-1 text-[#b3b3b3];
+  }
+  .link-primary:hover{
+    @apply bg-content2;
+  }
 }
 
 @layer base {
@@ -96,4 +102,37 @@ a.link:hover {
   --tw-prose-pre-bg: var(--fallback-n, oklch(var(--n) / 1));
   --tw-prose-th-borders: var(--fallback-bc, oklch(var(--bc) / 0.5));
   --tw-prose-td-borders: var(--fallback-bc, oklch(var(--bc) / 0.2));
+}
+
+/* 切换动画 */
+::view-transition-new(root) {
+  animation: turnOff 800ms ease-in-out;
+}
+::view-transition-old(root) {
+  animation: none;
+}
+
+@keyframes turnOn {
+  0% {
+    clip-path: polygon(0% 0%, 100% 0, 100% 0, 0 0);
+  }
+  100% {
+    clip-path: polygon(0% 0%, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+[class='dark']::view-transition-new(root) {
+  animation: turnOn 800ms ease-in-out;
+}
+::view-transition-old(root) {
+  animation: none;
+}
+
+@keyframes turnOff {
+  0% {
+    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+  }
+  100% {
+    clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 0);
+  }
 }

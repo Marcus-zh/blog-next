@@ -1,7 +1,7 @@
 import Card from "@/components/Card";
 import { Icon } from "@iconify/react/dist/iconify.js";
 
-export default function Search() {
+export function Search() {
   return (
     <Card className="search flex flex-col p-5" key="search">
       <form className="flex items-center">
@@ -10,7 +10,7 @@ export default function Search() {
         </a>
         <input
           type="text"
-          placeholder="Search..."
+          placeholder="搜..."
           className="w-[100%] bg-transparent border-none outline-none px-1"
         />
       </form>

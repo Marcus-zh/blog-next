@@ -1,9 +1,11 @@
 import { WalineProps } from "@waline/client";
+import { LinkProps } from "@/interface/common";
 
 export default interface Config {
   info: Info;
   social: Social;
   aside: Aside;
+  footer: Footer;
   waline?: WalineProps;
 }
 
@@ -32,4 +34,15 @@ interface Aside {
 interface AsideWidgets {
   left: string[];
   right: string[];
+}
+
+interface Footer {
+  left: {
+    year: number;
+    links?: LinkProps[];
+    icp?: LinkProps;
+  }
+  right:{
+    themeSwitch?: boolean;
+  }
 }

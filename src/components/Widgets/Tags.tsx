@@ -3,7 +3,7 @@ import { getAllSameFieldPosts } from "@/core/posts";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
 
-export default function Tags() {
+export function Tags() {
   const tags = getAllSameFieldPosts(0, "tags");
 
   return (

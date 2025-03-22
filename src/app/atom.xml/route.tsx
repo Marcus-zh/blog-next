@@ -61,7 +61,7 @@ export async function GET() {
         return ReactDOM.renderToString(
           <div>
             <blockquote>
-              该渲染过滤了一些组件，可能存在排版问题，最佳体验请前往：
+              该渲染可能存在排版问题，最佳体验请前往：
               <a href={`${xss(getUrl(`/posts/${post.slug}`))}`}>
                 {xss(getUrl(`/posts/${post.slug}`))}
               </a>
