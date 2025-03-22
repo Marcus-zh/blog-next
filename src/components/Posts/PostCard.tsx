@@ -2,7 +2,7 @@ import Post from "@/interface/post";
 import Card from "../Card";
 import { formatTime } from "@/utils/format";
 import Link from "next/link";
-import { clsxm } from "@/utils/helper";
+import { cn } from "@/utils/helper";
 
 export default function PostCard({
   title,
@@ -17,7 +17,7 @@ export default function PostCard({
     <Card className="w-[100%] h-40">
       <article className="flex flex-row justify-center items-center w-full h-full">
         <div
-          className={clsxm(
+          className={cn(
             "info",
             cover ? "w-[60%]" : "w-full",
             " h-[100%] flex flex-col justify-between p-4"

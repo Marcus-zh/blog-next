@@ -6,6 +6,7 @@ import {
   transformerNotationWordHighlight,
 } from "@shikijs/transformers";
 import { ShikiWrapper } from "./ShikiWrapper";
+import { useEffect, useState } from "react";
 
 export interface Props {
   lang: string | undefined;
@@ -13,18 +14,27 @@ export interface Props {
 }
 
 
-export default async function ShikiHighLighter(props: Props) {
+export default function ShikiHighLighter(props: Props) {
   const { content, lang } = props;
-  const out = await codeToHtml(content, {
-    lang: lang || "plaintext",
-    theme: "one-dark-pro",
-    transformers: [
-      transformerNotationDiff(),
-      transformerNotationHighlight(),
-      transformerNotationWordHighlight(),
-      transformerMetaHighlight(),
-    ],
-  });
+  const [renderedHTML, setRenderedHTML] = useState<string>("");
 
-  return <ShikiWrapper {...props} renderedHTML={out} />;
+  useEffect(() => {
+    async function highlightCode() {
+      const out = await codeToHtml(content, {
+        lang: lang || "plaintext",
+        theme: "one-dark-pro",
+        transformers: [
+          transformerNotationDiff(),
+          transformerNotationHighlight(),
+          transformerNotationWordHighlight(),
+          transformerMetaHighlight(),
+        ],
+      });
+      setRenderedHTML(out);
+    }
+
+    highlightCode();
+  }, [content, lang]);
+
+  return <ShikiWrapper {...props} renderedHTML={renderedHTML} />;
 }

@@ -1,6 +1,6 @@
 import { getAllPosts } from "@/core/posts";
 import Post from "@/interface/post";
-import PostCard from "@/components/Cards/PostCard";
+import PostCard from "@/components/Posts/PostCard";
 import { AsideLeft, AsideRight } from "@/components/Aside";
 import { Config } from "@/Config";
 
