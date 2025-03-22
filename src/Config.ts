@@ -4,7 +4,7 @@ export const Config: Config = {
   info: {
     siteName: "Marcus的小站",
     author: "Marcus",
-    description: "人间值得,未来可期",
+    description: "feedId:72882646932738048+userId:72617922693905408",
     siteUrl: "https://blog.marcus233.top",
     avatar: "/avatar.png",
     icon: "/favicon.ico",
