@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbopack",
     "build": "prisma generate&&next build",
     "start": "next start",
     "lint": "next lint",
@@ -11,30 +11,9 @@
     "migrate": "prisma migrate diff --from-schema-datamodel prisma/schema.prisma --to-schema-datamodel prisma/migrate.prisma --script > prisma/migrate.sql"
   },
   "dependencies": {
+    "@heroui/react": "^2.7.5",
     "@innei/markdown-to-jsx": "7.4.5-fork.4",
     "@mdx-js/react": "^3.1.0",
-    "@nextui-org/accordion": "^2.2.7",
-    "@nextui-org/button": "^2.2.9",
-    "@nextui-org/card": "^2.2.9",
-    "@nextui-org/checkbox": "^2.3.8",
-    "@nextui-org/chip": "^2.2.6",
-    "@nextui-org/code": "^2.2.6",
-    "@nextui-org/divider": "^2.2.5",
-    "@nextui-org/image": "^2.2.5",
-    "@nextui-org/input": "^2.4.8",
-    "@nextui-org/kbd": "^2.2.6",
-    "@nextui-org/modal": "^2.2.7",
-    "@nextui-org/navbar": "^2.2.8",
-    "@nextui-org/react": "^2.6.11",
-    "@nextui-org/scroll-shadow": "^2.3.5",
-    "@nextui-org/skeleton": "^2.2.5",
-    "@nextui-org/snippet": "^2.2.10",
-    "@nextui-org/spinner": "^2.2.6",
-    "@nextui-org/system": "^2.4.6",
-    "@nextui-org/table": "^2.2.8",
-    "@nextui-org/tabs": "^2.2.7",
-    "@nextui-org/theme": "^2.4.5",
-    "@nextui-org/tooltip": "^2.2.7",
     "@prisma/client": "5.18.0",
     "@shikijs/transformers": "^1.29.2",
     "@vercel/analytics": "^1.5.0",
@@ -47,11 +26,11 @@
     "gray-matter": "^4.0.3",
     "moment": "^2.30.1",
     "motion": "^12.4.7",
-    "next": "14.2.5",
+    "next": "15.2.2",
     "next-themes": "^0.3.0",
     "nextjs-toploader": "^3.7.15",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
     "rss": "^1.2.2",
     "shiki": "^1.29.2",
     "tailwind-merge": "^2.6.0",
@@ -63,8 +42,8 @@
     "@iconify/tailwind": "^1.2.0",
     "@tailwindcss/typography": "^0.5.16",
     "@types/node": "^22.13.9",
-    "@types/react": "^18.3.18",
-    "@types/react-dom": "^18.3.5",
+    "@types/react": "19.0.10",
+    "@types/react-dom": "19.0.4",
     "@types/rss": "^0.0.32",
     "@waline/client": "^3.5.5",
     "autoprefixer": "^10.4.20",
@@ -76,5 +55,11 @@
   },
   "compilerOptions": {
     "target": "ES2018"
+  },
+  "pnpm": {
+    "overrides": {
+      "@types/react": "19.0.10",
+      "@types/react-dom": "19.0.4"
+    }
   }
 }

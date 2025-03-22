@@ -6,7 +6,7 @@
 
 - **框架**: [Next.js](https://nextjs.org/), [React](https://reactjs.org/)
 - **数据库**: [Prisma](https://www.prisma.io/)
-- **前端库**:  [NextUI](https://nextui.org/)
+- **前端库**:  [Heroui](https://www.heroui.com/)
 - **样式**: [Tailwind CSS](https://tailwindcss.com/)
 - **Markdown 解析**: [@innei/markdown-to-jsx](https://github.com/innei/markdown-to-jsx)
 - **代码高亮**: [Shiki](https://shiki.matsu.io/)
