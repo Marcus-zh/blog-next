@@ -11,7 +11,7 @@ tags:
 categories:
   - 经验分享
   - 软件推荐
-cover: https://img1.marcus233.top/25/02/396f124f0697f62d.png
+cover: https://img2.marcus233.top/25/02/396f124f0697f62d.png
 tcolor: CD3CDA
 ---
 ## 起因

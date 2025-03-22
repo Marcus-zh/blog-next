@@ -78,11 +78,11 @@ joinCourse: function(courseObj){
 
 ```json
 {
-  "success": False,
+  "success": false,
   "code": 0,
   "message": "当前时间不在选课计划时间内！",
-  "data": None,
-  "timestamp": '1740139199751'
+  "data": null,
+  "timestamp": "1740139199751"
 }
 ```
 
