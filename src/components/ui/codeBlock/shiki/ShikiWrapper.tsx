@@ -115,7 +115,7 @@ export const ShikiWrapper = forwardRef<
       <div
         onCopy={(e) => e.stopPropagation}
         ref={codeBlockRef}
-        className="scrollbar-hide overflow-x-auto overscroll-y-none relative before:content-[attr(data-lang)] before:absolute before:right-6 before:font-bold before:text-2xl md:before:text-3xl before:opacity-60 before:text-white hover:before:opacity-0 before:transition-transform-opacity"
+        className="scrollbar-hide overflow-x-auto overscroll-y-none relative before:content-[attr(data-lang)] before:absolute before:right-6 before:font-bold before:text-2xl md:before:text-3xl before:opacity-60 before:!text-white hover:before:opacity-0 before:transition-transform-opacity"
         data-lang={language?.toLocaleUpperCase()}
         dangerouslySetInnerHTML={{ __html: props.renderedHTML! }}
       ></div>
