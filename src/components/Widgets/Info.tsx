@@ -1,5 +1,6 @@
 import Card from "@/components/Card";
 import { getAllSameFieldPosts } from "@/core/posts";
+import { isClientSide } from "@/utils/env";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
 
@@ -9,7 +10,7 @@ export function Info() {
       <div className="flex flex-row gap-1 items-center">
         <Icon icon="tabler:calendar" />
         <p>
-          天数: <span>2023-09-01</span>
+          天数: <span>{Math.floor((Date.now() - new Date('2022-09-08').getTime()) / (1000 * 60 * 60 * 24))}</span>
         </p>
       </div>
       <div className="flex flex-row gap-1 items-center">
