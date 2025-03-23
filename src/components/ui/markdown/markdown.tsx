@@ -61,7 +61,6 @@ export const Markdown: FC<MdProps & MarkdownToJSX.Options & PropsWithChildren> =
       const mdElement = compiler(mdContent, {
         doNotProcessHtmlElements: ["tab", "style", "script"] as any[],
         wrapper: null,
-        // @ts-ignore
         overrides: {
           // p: MParagraph,
 
@@ -85,6 +84,7 @@ export const Markdown: FC<MdProps & MarkdownToJSX.Options & PropsWithChildren> =
 
           // LinkCard,
           // Gallery,
+          // @ts-ignore
           script: allowsScript ? Script : undefined,
 
           ...overrides,
@@ -94,7 +94,7 @@ export const Markdown: FC<MdProps & MarkdownToJSX.Options & PropsWithChildren> =
           heading: {
             react(node, output, state) {
               return (
-                <Header id={node.id} level={node.level} key={state?.key}>
+                <Header id={node.content[0].content} level={node.level} key={state?.key}>
                   {output(node.content, state!)}
                 </Header>
               );
