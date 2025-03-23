@@ -23,11 +23,6 @@ export default function Card({
         markdown ? "markdown" : ""
       )}
     >
-      {tip && (
-        <span className="absolute top-[-23px] left-5 text-zinc-800 dark:text-zinc-600 text-sm">
-          {tip}
-        </span>
-      )}
       {children}
     </MCard>
   );
