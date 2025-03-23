@@ -4,8 +4,6 @@ import { blockRegex, Priority } from "@innei/markdown-to-jsx";
 import type { FC } from "react";
 
 import { Markdown } from "../markdown";
-import { warning } from "framer-motion";
-import { error } from "console";
 import { Icon } from "@iconify/react";
 import { cn } from "@/utils/helper";
 
