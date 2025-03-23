@@ -16,15 +16,15 @@ interface HeadingProps {
 export const Header = (props: HeadingProps) => {
   const { children, id, level } = props
 
-  const rid = useId()
+  // const rid = useId()
 
   const isClient = useIsClient()
 
-  const nextId = `${rid}${id}`
+  // const nextId = `${rid}${id}`
   return createElement<DOMAttributes<HTMLHeadingElement>, HTMLHeadingElement>(
     `h${level}`,
     {
-      id: nextId,
+      id: id,
       className: 'group flex items-center',
 
       'data-markdown-heading': true,
@@ -40,8 +40,8 @@ export const Header = (props: HeadingProps) => {
           aria-hidden
           onClick={() => {
             const { state } = history
-            history.replaceState(state, '', `#${nextId}`)
-            springScrollToElement(document.getElementById(nextId)!, -100)
+            history.replaceState(state, '', `#${id}`)
+            springScrollToElement(document.getElementById(id)!, -100)
           }}
         >
           <Icon icon="tabler:hash"/>
